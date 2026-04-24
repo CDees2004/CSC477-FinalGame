@@ -1,6 +1,8 @@
+using HighScore; 
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Add this to use Dictionary
+using System.Collections.Generic;
+using TMPro; // Add this to use Dictionary
 
 public class RoomManager : MonoBehaviour
 {
@@ -12,8 +14,12 @@ public class RoomManager : MonoBehaviour
     private AudioSource audioSource;
     public int startingRoomID = 1; // Default starting room ID
 
+    //public TMP_InputField TestGameName; 
+
     void Awake()
     {
+        // setup high score
+        HS.Init(this, "Does this work?");
         if (Instance == null)
         {
             Instance = this;
