@@ -132,7 +132,7 @@ public class Test : MonoBehaviour
             print((Colors)c); // casting it to its actual object type
         }
 
-        Image img;
+        // Image img;
         //img.ChangeOpacity(0.5f);
 
         string msg = "Chandler's totally original message";
