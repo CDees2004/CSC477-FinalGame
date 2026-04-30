@@ -34,7 +34,7 @@ public class InventoryUI : MonoBehaviour
 
     private IEnumerator WaitForCollectionAnimation(Sprite itemIcon)
     {
-        yield return new WaitForSeconds(UIManager.Instance.animationDuration + 0.5f); // Wait for UI animation to finish
+        yield return new WaitForSeconds(Management_HUD.Instance.animationDuration + 0.5f); // Wait for UI animation to finish
         
         for (int i = 0; i < inventorySlots.Count; i++)
         {

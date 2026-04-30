@@ -22,7 +22,7 @@ public class Collectible : MonoBehaviour
             }
 
             // Play UI animation
-            UIManager.Instance.PlayItemCollectedAnimation(itemIcon);
+            Management_HUD.Instance.PlayItemCollectedAnimation(itemIcon);
 
             // Destroy the collectible object
             Destroy(gameObject);

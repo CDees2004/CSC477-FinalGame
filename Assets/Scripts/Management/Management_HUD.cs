@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIManager : MonoBehaviour
+public class Management_HUD : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static Management_HUD Instance;
     public Image itemCollectedImage; // Assign in the Inspector
     public float animationDuration = 1f; // Time for animation
 
