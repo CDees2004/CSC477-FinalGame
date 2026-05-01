@@ -85,6 +85,7 @@ public class Management_UI : MonoBehaviour
     // wrapper methods added for button inspector use 
     public void StartGame()
     {
+        print("Start button clicked");
         ChangeUIState(UIState.START_SCREEN);
     }
 }
