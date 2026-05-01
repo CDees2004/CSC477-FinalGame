@@ -4,9 +4,8 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Collections.Generic;
 
-
 using UIState = FsmUIState;
-using UnityEngine.UIElements;
+
 
 public enum FsmUIState
 {
@@ -38,6 +37,7 @@ public class Management_UI : MonoBehaviour
     }
 
     // Takes in UI element as arg, set it and only it active
+    // called when the state is changed by other scripts 
     private void SetUIElement(string requestedPanelName)
     {
         foreach (GameObject panel in PanelsUI)
@@ -80,5 +80,11 @@ public class Management_UI : MonoBehaviour
                 SetUIElement("GameWinScreen");
                 break;
         }
+    }
+
+    // wrapper methods added for button inspector use 
+    public void StartGame()
+    {
+        ChangeUIState(UIState.START_SCREEN);
     }
 }
