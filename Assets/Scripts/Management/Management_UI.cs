@@ -29,6 +29,8 @@ public class Management_UI : MonoBehaviour
     {
         Instance = this;
 
+        UIState = UIState.START_SCREEN; 
+
         // storing the panels set in inspector into a map to load from 
         foreach (GameObject panel in PanelsUI)
         {
@@ -86,7 +88,6 @@ public class Management_UI : MonoBehaviour
     public void StartGame()
     {
         ChangeUIState(UIState.IN_GAME);
-        print($"StartGame() called. UIState is {UIState}");
     }
 
     public void GameOver()
