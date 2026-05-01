@@ -85,7 +85,29 @@ public class Management_UI : MonoBehaviour
     // wrapper methods added for button inspector use 
     public void StartGame()
     {
-        print("Start button clicked");
-        ChangeUIState(UIState.START_SCREEN);
+        ChangeUIState(UIState.IN_GAME);
+        print($"StartGame() called. UIState is {UIState}");
+    }
+
+    public void GameOver()
+    {
+        ChangeUIState(UIState.GAME_OVER);
+    }
+
+    // additional methods for use with the OnClick() 
+    // in the Button's inspector widget 
+    public void QuitGame()
+    {
+        print("Quit game called");
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
+    Application.Quit(); 
+#endif 
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
