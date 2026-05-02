@@ -16,8 +16,12 @@ public enum FsmUIState
     GAME_WIN,
 }
 
+
 public class Management_UI : MonoBehaviour
 {
+    // Toggling debug prints 
+    private const bool DEBUG = true; 
+
     // Singleton because management script 
     public static Management_UI Instance { get; private set; }
     public UIState UIState { get; private set; }
@@ -36,6 +40,14 @@ public class Management_UI : MonoBehaviour
         {
             uiCache.Add(panel.name, panel);
         }
+    }
+
+    private void Start()
+    {
+        // double setting the initial state to the START_SCREEN
+        // to force the other UI elements to turn off if they were
+        // left on 
+        SetUIElement("StartScreen");
     }
 
     // Takes in UI element as arg, set it and only it active
@@ -58,6 +70,9 @@ public class Management_UI : MonoBehaviour
     // handles state changing for the UI FSM
     public void ChangeUIState(UIState newState)
     {
+        // check if it is a redudant requested state swap and reject 
+        // it
+
         switch (newState)
         {
             case UIState.START_SCREEN:
