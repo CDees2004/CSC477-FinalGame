@@ -12,16 +12,18 @@ public enum FsmUIState
     START_SCREEN,
     IN_GAME,
     PAUSED,
+    IN_SETTINGS,
     GAME_OVER,
     GAME_WIN,
 }
 
+/*
+ *  NOTE: UI panel names are required to be exactly as detailed in the 
+ *  ChangeUIState method. Name them appropraitely in the inspector. 
+ */
 
 public class Management_UI : MonoBehaviour
 {
-    // Toggling debug prints 
-    private const bool DEBUG = true; 
-
     // Singleton because management script 
     public static Management_UI Instance { get; private set; }
     public UIState UIState { get; private set; }
@@ -33,18 +35,13 @@ public class Management_UI : MonoBehaviour
     {
         Instance = this;
 
-        UIState = UIState.START_SCREEN; 
-
         // storing the panels set in inspector into a map to load from 
         foreach (GameObject panel in PanelsUI)
         {
             uiCache.Add(panel.name, panel);
         }
-    }
 
-    private void Start()
-    {
-        // double setting the initial state to the START_SCREEN
+        // Setting the initial state to the START_SCREEN
         // to force the other UI elements to turn off if they were
         // left on 
         SetUIElement("StartScreen");
@@ -67,11 +64,11 @@ public class Management_UI : MonoBehaviour
         }
     }
 
-    // handles state changing for the UI FSM
+    // Handles state changing for the UI FSM
     public void ChangeUIState(UIState newState)
     {
-        // check if it is a redudant requested state swap and reject 
-        // it
+        // Check if it is a redudant requested state swap and reject it
+        if (newState == UIState) return;
 
         switch (newState)
         {
@@ -79,7 +76,7 @@ public class Management_UI : MonoBehaviour
                 SetUIElement("StartScreen");
                 break;
 
-            // if they are in the game, we use a 
+            // If they are in the game, we use a 
             // panel name that doesn't exit to turn them all off 
             case UIState.IN_GAME:
                 SetUIElement("");
@@ -87,6 +84,11 @@ public class Management_UI : MonoBehaviour
 
             case UIState.PAUSED:
                 SetUIElement("PauseScreen");
+                break;
+
+            // Has different behavior due to being a NESTED UI panel
+            case UIState.IN_SETTINGS:
+                OpenSettings();
                 break;
 
             case UIState.GAME_OVER:
@@ -99,7 +101,8 @@ public class Management_UI : MonoBehaviour
         }
     }
 
-    // wrapper methods added for button inspector use 
+    // Wrapper methods added for button inspector use 
+    // --- these methods need to be PUBLIC to show up in the inspector
     public void StartGame()
     {
         ChangeUIState(UIState.IN_GAME);
@@ -110,7 +113,7 @@ public class Management_UI : MonoBehaviour
         ChangeUIState(UIState.GAME_OVER);
     }
 
-    // additional methods for use with the OnClick() 
+    // Additional methods for use with the OnClick() 
     // in the Button's inspector widget 
     public void QuitGame()
     {
@@ -125,5 +128,11 @@ public class Management_UI : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OpenSettings()
+    {
+        // Additional popup nested inside of Settings 
+
     }
 }
