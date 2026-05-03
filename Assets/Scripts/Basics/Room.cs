@@ -15,6 +15,8 @@ public class Room : MonoBehaviour
     private int enemiesAlive;
     private bool roomCleared = false;
 
+    private const bool DEBUG = true;
+
 
     private void Start()
     {
@@ -25,6 +27,7 @@ public class Room : MonoBehaviour
     public void AddEnemy()
     {
         enemiesAlive++;
+        if (DEBUG) print($"Enemies: {enemiesAlive}.");
     }
 
     // Called my enemy instances
@@ -49,6 +52,7 @@ public class Room : MonoBehaviour
     {
         foreach (var point in spawnPoints)
         {
+            if (DEBUG) print("Enemy spawned.");
             SpawnEnemy(point.position);
             yield return new WaitForSeconds(0.2f);
         }
