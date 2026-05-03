@@ -1,15 +1,31 @@
 using UnityEngine;
 
+/*
+ * The Game Manager handles tracking the overall game state
+ * determining if the win or lose condition has ever been reached. 
+ * 
+ * Some functionality is as simple as triggering events in the 
+ * UI manager. This is done to maintain clarity. 
+ */
+
+public enum FSMGameState
+{
+    PLAYING, 
+    SELECTING_UPGRADE, 
+    WIN, 
+    LOSE, 
+}
+
 public class Management_Game : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
