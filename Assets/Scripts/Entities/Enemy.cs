@@ -8,16 +8,12 @@ public abstract class Enemy : MonoBehaviour
     protected float enemyDamage;
 
     // Each enemy must belong to a room
-    public int enemyRoomID; 
+    private Room parentRoom;
 
     private void Start()
     {
-
-    }
-
-    private void Update()
-    {
-
+        parentRoom = GetComponentInParent<Room>();
+        parentRoom?.AddEnemy();
     }
 
     protected virtual void TakeDamage(float enemyHealth)
@@ -27,6 +23,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        
+        parentRoom?.OnEnemyDeath();
+        Destroy(gameObject);
     }
 }

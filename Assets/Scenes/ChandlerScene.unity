@@ -2033,7 +2033,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 3
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
-  enemiesAlive: 0
 --- !u!1 &173174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -20729,7 +20728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &790960196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32089,7 +32088,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 4
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
-  enemiesAlive: 0
 --- !u!1 &905100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -32708,7 +32706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &968760870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62773,7 +62771,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 5
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
-  enemiesAlive: 0
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -68792,7 +68789,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 1
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
-  enemiesAlive: 0
 --- !u!1 &2094082438
 GameObject:
   m_ObjectHideFlags: 0
@@ -69093,7 +69089,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 2
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
-  enemiesAlive: 0
 --- !u!1 &2135540013
 GameObject:
   m_ObjectHideFlags: 0
