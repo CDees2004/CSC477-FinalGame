@@ -2033,6 +2033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 3
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
+  enemiesAlive: 0
 --- !u!1 &173174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,8 +2580,9 @@ GameObject:
   - component: {fileID: 213176798}
   - component: {fileID: 213176799}
   - component: {fileID: 213176800}
+  - component: {fileID: 213176801}
   m_Layer: 0
-  m_Name: UI Manager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2632,6 +2634,19 @@ MonoBehaviour:
   - {fileID: 351349054}
   - {fileID: 688443330}
   - {fileID: 790960195}
+  - {fileID: 968760869}
+--- !u!114 &213176801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213176797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c794640711e8e834cba354c4a37a0205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Management_CheatCodes
 --- !u!1 &219081809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,7 +5228,6 @@ Transform:
   - {fileID: 718940058}
   - {fileID: 213176798}
   - {fileID: 1052508027}
-  - {fileID: 1348100892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383265545
@@ -5827,6 +5841,7 @@ RectTransform:
   - {fileID: 272090255}
   - {fileID: 351349055}
   - {fileID: 688443331}
+  - {fileID: 968760870}
   - {fileID: 790960196}
   m_Father: {fileID: 1096639279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13927,7 +13942,7 @@ GameObject:
   - component: {fileID: 656917076}
   - component: {fileID: 656917075}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: UI Screen Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19820,6 +19835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingRoomID: 1
+  clearedRooms: 0
 --- !u!1 &723719286
 GameObject:
   m_ObjectHideFlags: 0
@@ -32073,6 +32089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 4
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
+  enemiesAlive: 0
 --- !u!1 &905100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -32686,7 +32703,7 @@ GameObject:
   - component: {fileID: 968760871}
   - component: {fileID: 968760875}
   m_Layer: 5
-  m_Name: --UI Screen Fade
+  m_Name: ScreenFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32699,19 +32716,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968760869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 656917074}
-  m_Father: {fileID: 1096639279}
+  m_Father: {fileID: 449639476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968760871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39309,7 +39326,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 449639476}
-  - {fileID: 968760870}
   m_Father: {fileID: 770957329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104753409
@@ -46698,50 +46714,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1348100891
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1348100892}
-  - component: {fileID: 1348100893}
-  m_Layer: 0
-  m_Name: Game Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1348100892
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348100891}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 381901141}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1348100893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348100891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c794640711e8e834cba354c4a37a0205, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Management_CheatCodes
 --- !u!1 &1349062905
 GameObject:
   m_ObjectHideFlags: 0
@@ -62801,6 +62773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 5
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
+  enemiesAlive: 0
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -68819,6 +68792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 1
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
+  enemiesAlive: 0
 --- !u!1 &2094082438
 GameObject:
   m_ObjectHideFlags: 0
@@ -69119,6 +69093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 2
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
+  enemiesAlive: 0
 --- !u!1 &2135540013
 GameObject:
   m_ObjectHideFlags: 0

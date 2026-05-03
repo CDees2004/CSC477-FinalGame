@@ -23,10 +23,10 @@ public enum FsmUIState
  *  ChangeUIState method. Name them appropraitely in the inspector. 
  */
 
-public class Management_UI : MonoBehaviour
+public class Management_Game : MonoBehaviour
 {
     // Singleton because management script 
-    public static Management_UI Instance { get; private set; }
+    public static Management_Game Instance { get; private set; }
     public UIState UIState { get; private set; }
 
     public List<GameObject> PanelsUI;
@@ -85,7 +85,7 @@ public class Management_UI : MonoBehaviour
             // If they are in the game, we use a 
             // panel name that doesn't exit to turn them all off 
             case UIState.IN_GAME:
-                SetUIElement("");
+                SetUIElement("ScreenFade");
                 break;
 
             case UIState.PAUSED:
@@ -106,6 +106,7 @@ public class Management_UI : MonoBehaviour
                 break;
         }
     }
+
 
     public void CheckWinCondition()
     {

@@ -31,9 +31,9 @@ public class Management_CheatCodes : MonoBehaviour
         if (inputActions.UI.CheatCode_GameWin.WasPressedThisFrame())
         {
             print("Numpad 1 pressed");
-            Management_UI.Instance.ChangeUIState(FsmUIState.GAME_WIN);
+            Management_Game.Instance.ChangeUIState(FsmUIState.GAME_WIN);
         }
 
-        if (inputActions.UI.CheatCode_GameLose.WasPressedThisFrame()) Management_UI.Instance.ChangeUIState(FsmUIState.GAME_OVER);
+        if (inputActions.UI.CheatCode_GameLose.WasPressedThisFrame()) Management_Game.Instance.ChangeUIState(FsmUIState.GAME_OVER);
     }
 }
