@@ -1,15 +1,17 @@
 using UnityEngine;
 
+// Fundamental idea: Enemy spawning populates the dictionary 
+// enemies and roomID associated with each room. 
+
 public class Management_EnemySpawning : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

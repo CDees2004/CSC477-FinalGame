@@ -1,15 +1,20 @@
 using UnityEngine;
 
-public class Enemy_Basic : MonoBehaviour
+public class Enemy_Basic : Enemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
+    {
+        // Get the enemies room ID so that death updates the room
+
+
+    }
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

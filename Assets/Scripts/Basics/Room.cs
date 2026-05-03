@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic; 
 
 public class Room : MonoBehaviour
 {
@@ -6,11 +7,15 @@ public class Room : MonoBehaviour
     public int roomID; 
     public AudioClip roomAudio;
     public int enemiesAlive;
+
+    private Dictionary<Enemy, int> enemiesPerRoom = new();
     
 
     private void Start()
     {
         Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio);
+
+        // Populating the room with enemies 
     }
 
     public void AddEnemy()
@@ -24,8 +29,8 @@ public class Room : MonoBehaviour
         enemiesAlive--;
     }
 
-    public void ClearRoom()
+    public void CheckClearedRoom()
     {
-        Management_Rooms.Instance.clearedRooms++;
+        if (enemiesAlive == 0) Management_Rooms.Instance.clearedRooms++;
     }
 }
