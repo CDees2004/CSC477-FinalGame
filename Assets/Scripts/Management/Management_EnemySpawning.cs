@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Management_EnemySpawning : MonoBehaviour
 {
+    private int currentlySpawnedEnemies;
+    private int maxSpawnedEnemies;
+
+    // Handle the enemy spawning through Coroutines.
 
     private void Start()
     {

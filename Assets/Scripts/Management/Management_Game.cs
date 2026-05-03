@@ -2,6 +2,12 @@ using UnityEngine;
 
 using GameState = FSMGameState; 
 
+/*
+ * NOTE: This file does a minimal amount of work itself. 
+ * This manager primarly serves as a simple interface with 
+ * the other management scripts. 
+ */
+
 public enum FSMGameState
 {
     PLAYING, 
@@ -15,7 +21,6 @@ public class Management_Game : MonoBehaviour
     public static Management_Game Instance;
     public GameState GameState { get; private set; }
 
-    public int roomsCleared { get; private set; }
     public int runSeed; 
 
     private void Awake()

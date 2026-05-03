@@ -136,6 +136,6 @@ public class Management_UI : MonoBehaviour
     public void OpenSettings()
     {
         // Additional popup nested inside of Settings 
-
+        // Handle this popup's logic through the use of a Coroutine.
     }
 }
