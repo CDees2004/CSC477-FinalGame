@@ -7,6 +7,6 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        RoomManager.Instance.RegisterRoom(roomID, transform, roomAudio);
+        Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio);
     }
 }

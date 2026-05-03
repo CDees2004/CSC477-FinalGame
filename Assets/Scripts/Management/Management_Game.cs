@@ -1,13 +1,5 @@
 using UnityEngine;
 
-/*
- * The Game Manager handles tracking the overall game state
- * determining if the win or lose condition has ever been reached. 
- * 
- * Some functionality is as simple as triggering events in the 
- * UI manager. This is done to maintain clarity. 
- */
-
 public enum FSMGameState
 {
     PLAYING, 
@@ -18,15 +10,32 @@ public enum FSMGameState
 
 public class Management_Game : MonoBehaviour
 {
+    public static Management_Game Instance;
 
+    public int roomsCleared { get; private set; }
+    public int runSeed; 
 
-    private void Start()
+    private void Awake()
     {
-        
+        Instance = this; 
     }
 
-    private void Update()
+    public void StartRun()
     {
-        
+        runSeed = Random.Range(0, int.MaxValue);
+        roomsCleared = 0; 
+
+        // load the starting room 
+    }
+
+    public void ClearRoom()
+    {
+        roomsCleared++; 
+    }
+
+    public void EndRun()
+    {
+        // resetting
+        StartRun(); 
     }
 }

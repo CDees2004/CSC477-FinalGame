@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro; // Add this to use Dictionary
 
-public class RoomManager : MonoBehaviour
+public class Management_Rooms : MonoBehaviour
 {
-    public static RoomManager Instance;
+    public static Management_Rooms Instance;
 
     private Dictionary<int, Transform> roomDictionary = new Dictionary<int, Transform>();
     private Dictionary<int, AudioClip> roomAudioDictionary = new Dictionary<int, AudioClip>();
@@ -14,12 +14,8 @@ public class RoomManager : MonoBehaviour
     private AudioSource audioSource;
     public int startingRoomID = 1; // Default starting room ID
 
-    //public TMP_InputField TestGameName; 
-
     void Awake()
     {
-        // setup high score
-        HS.Init(this, "Does this work?");
         if (Instance == null)
         {
             Instance = this;
@@ -78,5 +74,12 @@ public class RoomManager : MonoBehaviour
         {
             audioSource.Stop(); // Stop audio if no specific clip for this room
         }
+    }
+
+    // Selecting a random room from the appropriate rooms for 
+    // each door transition 
+    public void SelectRoom()
+    {
+
     }
 }

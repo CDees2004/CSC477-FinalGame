@@ -66,7 +66,7 @@ public class DoorTrigger : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration + 0.2f);
 
         // Move the camera to the new room
-        RoomManager.Instance.MoveCameraToRoom(targetRoomID);
+        Management_Rooms.Instance.MoveCameraToRoom(targetRoomID);
 
         // Move the player to the twin door's landing position
         if (twinDoor != null && twinDoor.landingPosition != null)

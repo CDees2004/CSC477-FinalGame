@@ -1,9 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEditor;
+using HighScore;
 using System.Collections.Generic;
-
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UIState = FsmUIState;
 
 
@@ -33,6 +33,9 @@ public class Management_UI : MonoBehaviour
 
     private void Awake()
     {
+        // setup high score
+        HS.Init(this, "Team7");
+
         Instance = this;
 
         // storing the panels set in inspector into a map to load from 
