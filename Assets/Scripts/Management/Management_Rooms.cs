@@ -1,4 +1,4 @@
-using HighScore; 
+using HighScore;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +13,8 @@ public class Management_Rooms : MonoBehaviour
     private Camera mainCamera;
     private AudioSource audioSource;
     public int startingRoomID = 1; // Default starting room ID
+
+    public int clearedRooms;
 
     void Awake()
     {

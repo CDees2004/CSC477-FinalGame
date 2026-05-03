@@ -3,6 +3,10 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    protected string enemyIdentifier;
+    protected float enemyHealth; 
+    protected float enemyDamage; 
+
     private void Start()
     {
 
@@ -14,6 +18,11 @@ public abstract class Enemy : MonoBehaviour
     }
 
     protected virtual void TakeDamage(float enemyHealth)
+    {
+
+    }
+
+    protected virtual void Die()
     {
 
     }

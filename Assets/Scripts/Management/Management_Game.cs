@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using GameState = FSMGameState; 
+
 public enum FSMGameState
 {
     PLAYING, 
@@ -11,6 +13,7 @@ public enum FSMGameState
 public class Management_Game : MonoBehaviour
 {
     public static Management_Game Instance;
+    public GameState GameState { get; private set; }
 
     public int roomsCleared { get; private set; }
     public int runSeed; 
@@ -18,6 +21,23 @@ public class Management_Game : MonoBehaviour
     private void Awake()
     {
         Instance = this; 
+
+    }
+
+    public void ChangeGameState(GameState newGameState)
+    {
+        if (newGameState == GameState) return;
+
+        switch (newGameState)
+        {
+            case GameState.PLAYING:
+                print("playing");
+                break;
+
+            case GameState.WIN:
+                Management_UI.Instance.ChangeUIState(FsmUIState.GAME_WIN);
+                break;
+        }
     }
 
     public void StartRun()
@@ -28,14 +48,14 @@ public class Management_Game : MonoBehaviour
         // load the starting room 
     }
 
-    public void ClearRoom()
-    {
-        roomsCleared++; 
-    }
-
     public void EndRun()
     {
         // resetting
         StartRun(); 
+    }
+
+    public void CheckWinCondition()
+    {
+        if (Management_Rooms.Instance.clearedRooms >= 8) GameState = GameState.WIN; 
     }
 }
