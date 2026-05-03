@@ -655,6 +655,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheatCode_GameWin"",
+                    ""type"": ""Button"",
+                    ""id"": ""6898cf31-7dc3-415b-b715-ec63d8da1031"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheatCode_GameLose"",
+                    ""type"": ""Button"",
+                    ""id"": ""69a7ceb1-4037-4f42-adc7-b03add198109"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1075,6 +1093,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04cb96f3-2708-4661-ae42-81b704ee6812"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatCode_GameWin"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f628d921-3ad4-413c-9563-581eaac1c3d6"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatCode_GameLose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1165,6 +1205,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_CheatCode_GameWin = m_UI.FindAction("CheatCode_GameWin", throwIfNotFound: true);
+        m_UI_CheatCode_GameLose = m_UI.FindAction("CheatCode_GameLose", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -1440,6 +1482,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_CheatCode_GameWin;
+    private readonly InputAction m_UI_CheatCode_GameLose;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1491,6 +1535,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/TrackedDeviceOrientation".
         /// </summary>
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CheatCode_GameWin".
+        /// </summary>
+        public InputAction @CheatCode_GameWin => m_Wrapper.m_UI_CheatCode_GameWin;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CheatCode_GameLose".
+        /// </summary>
+        public InputAction @CheatCode_GameLose => m_Wrapper.m_UI_CheatCode_GameLose;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1547,6 +1599,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+            @CheatCode_GameWin.started += instance.OnCheatCode_GameWin;
+            @CheatCode_GameWin.performed += instance.OnCheatCode_GameWin;
+            @CheatCode_GameWin.canceled += instance.OnCheatCode_GameWin;
+            @CheatCode_GameLose.started += instance.OnCheatCode_GameLose;
+            @CheatCode_GameLose.performed += instance.OnCheatCode_GameLose;
+            @CheatCode_GameLose.canceled += instance.OnCheatCode_GameLose;
         }
 
         /// <summary>
@@ -1588,6 +1646,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+            @CheatCode_GameWin.started -= instance.OnCheatCode_GameWin;
+            @CheatCode_GameWin.performed -= instance.OnCheatCode_GameWin;
+            @CheatCode_GameWin.canceled -= instance.OnCheatCode_GameWin;
+            @CheatCode_GameLose.started -= instance.OnCheatCode_GameLose;
+            @CheatCode_GameLose.performed -= instance.OnCheatCode_GameLose;
+            @CheatCode_GameLose.canceled -= instance.OnCheatCode_GameLose;
         }
 
         /// <summary>
@@ -1834,5 +1898,19 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CheatCode_GameWin" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCheatCode_GameWin(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CheatCode_GameLose" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCheatCode_GameLose(InputAction.CallbackContext context);
     }
 }

@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 /*
@@ -8,13 +9,31 @@ using UnityEngine;
 
 public class Management_CheatCodes : MonoBehaviour
 {
-    private void Start()
+    private PlayerInputActions inputActions;
+
+    private void Awake()
     {
-        
+        inputActions = new PlayerInputActions(); 
+    }
+
+    private void OnEnable()
+    {
+        inputActions.UI.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.UI.Disable();
     }
 
     private void Update()
     {
-        
+        if (inputActions.UI.CheatCode_GameWin.WasPressedThisFrame())
+        {
+            print("Numpad 1 pressed");
+            Management_UI.Instance.ChangeUIState(FsmUIState.GAME_WIN);
+        }
+
+        if (inputActions.UI.CheatCode_GameLose.WasPressedThisFrame()) Management_UI.Instance.ChangeUIState(FsmUIState.GAME_OVER);
     }
 }
