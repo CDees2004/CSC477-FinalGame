@@ -13,6 +13,7 @@ public enum FsmUIState
     IN_GAME,
     PAUSED,
     IN_SETTINGS,
+    SELECTING_UPGRADE,
     GAME_OVER,
     GAME_WIN,
 }
@@ -30,6 +31,8 @@ public class Management_UI : MonoBehaviour
 
     public List<GameObject> PanelsUI;
     private Dictionary<string, GameObject> uiCache = new();
+
+    private int runSeed; 
 
     private void Awake()
     {
@@ -102,6 +105,21 @@ public class Management_UI : MonoBehaviour
                 SetUIElement("GameWinScreen");
                 break;
         }
+    }
+
+    public void CheckWinCondition()
+    {
+        if (Management_Rooms.Instance.clearedRooms >= 8) UIState = UIState.GAME_WIN;
+    }
+
+    private void StartRun()
+    {
+
+    }
+
+    private void EndRun()
+    {
+        StartRun(); // restarting 
     }
 
     // Wrapper methods added for button inspector use 
