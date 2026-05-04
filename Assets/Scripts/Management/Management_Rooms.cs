@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 // Room types for selection pools 
-public enum RoomType
+public enum DoorDirection
 {
     LEFT,
     RIGHT,
@@ -15,7 +15,7 @@ public class Management_Rooms : MonoBehaviour
 {
     public static Management_Rooms Instance;
 
-    private Dictionary<int, RoomType> roomTypeDictionary = new();
+    private Dictionary<int, DoorDirection> DoorDirectionDictionary = new();
 
     private Dictionary<int, Transform> roomDictionary = new();
     private Dictionary<int, AudioClip> roomAudioDictionary = new();
@@ -48,13 +48,13 @@ public class Management_Rooms : MonoBehaviour
         ChangeRoomAudio(startingRoomID);
     }
 
-    public void RegisterRoom(int roomID, Transform roomTransform, AudioClip roomAudio, RoomType type)
+    public void RegisterRoom(int roomID, Transform roomTransform, AudioClip roomAudio, DoorDirection type)
     {
         if (!roomDictionary.ContainsKey(roomID))
         {
             roomDictionary.Add(roomID, roomTransform);
             roomAudioDictionary.Add(roomID, roomAudio);
-            roomTypeDictionary.Add(roomID, type);
+            DoorDirectionDictionary.Add(roomID, type);
         }
     }
 
@@ -90,11 +90,11 @@ public class Management_Rooms : MonoBehaviour
 
     // Given a type of room, chooses random room from pool of valid selections
     // Returns the room's ID
-    public int SelectRoom(RoomType type)
+    public int SelectRoom(DoorDirection type)
     {
         List<int> validRooms = new();
 
-        foreach (var pair in roomTypeDictionary)
+        foreach (var pair in DoorDirectionDictionary)
         {
             if (pair.Value == type) validRooms.Add(pair.Key);
         }

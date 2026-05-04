@@ -2130,6 +2130,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 79239526}
   - {fileID: 1138572443}
+  roomType: 0
 --- !u!1 &173174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,6 +3619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 640544156}
   targetRoomID: 2
   fadeDuration: 0.5
@@ -11943,6 +11945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 1844639700}
   targetRoomID: 1
   fadeDuration: 0.5
@@ -13603,6 +13606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 245888842}
   targetRoomID: 5
   fadeDuration: 0.5
@@ -14304,6 +14308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 1342991149}
   targetRoomID: 1
   fadeDuration: 0.5
@@ -26329,6 +26334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 1029134997}
   targetRoomID: 1
   fadeDuration: 0.5
@@ -32187,6 +32193,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
+  roomType: 3
 --- !u!1 &905100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -33221,6 +33228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 826585176}
   targetRoomID: 5
   fadeDuration: 0.5
@@ -46792,6 +46800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 678288628}
   targetRoomID: 3
   fadeDuration: 0.5
@@ -56492,6 +56501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionRoomType: 0
   twinDoor: {fileID: 517736143}
   targetRoomID: 4
   fadeDuration: 0.5
@@ -62963,6 +62973,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
+  roomType: 1
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -68983,6 +68994,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
+  roomType: 0
 --- !u!1 &2094082438
 GameObject:
   m_ObjectHideFlags: 0
@@ -69285,6 +69297,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
+  roomType: 0
 --- !u!1 &2135540013
 GameObject:
   m_ObjectHideFlags: 0

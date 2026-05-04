@@ -11,6 +11,7 @@ public class Room : MonoBehaviour
     public AudioClip roomAudio;
     public GameObject enemyPrefab;
     public Transform[] spawnPoints; // Will grab obj's position.
+    public DoorDirection DoorDirection;
 
     private int enemiesAlive;
     private bool roomCleared = false;
@@ -20,7 +21,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio);
+        Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, DoorDirection);
         StartCoroutine(SpawnEnemiesRoutine());
     }
 
@@ -38,7 +39,7 @@ public class Room : MonoBehaviour
         if (enemiesAlive <= 0 && !roomCleared)
         {
             roomCleared = true;
-
+            OnRoomCleared();
         }
     }
 

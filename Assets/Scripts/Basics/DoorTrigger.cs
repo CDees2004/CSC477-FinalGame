@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DoorTrigger : MonoBehaviour
 {
+    public DoorDirection transitionDoorDirection;
+
     // twinDoor is the key part that needs to be eradicated
     public DoorTrigger twinDoor; // Drag the twin door here manually in the Inspector
 
@@ -68,7 +70,8 @@ public class DoorTrigger : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration + 0.2f);
 
         // Move the camera to the new room
-        Management_Rooms.Instance.MoveCameraToRoom(targetRoomID);
+        int nextRoomID = Management_Rooms.Instance.SelectRoom(transitionDoorDirection);
+        Management_Rooms.Instance.MoveCameraToRoom(nextRoomID);
 
         // Move the player to the twin door's landing position
         if (twinDoor != null && twinDoor.landingPosition != null)
