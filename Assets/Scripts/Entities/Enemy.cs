@@ -10,15 +10,22 @@ public abstract class Enemy : MonoBehaviour
     // Each enemy must belong to a room
     private Room parentRoom;
 
-    private void Start()
+    protected virtual void Awake()
     {
         parentRoom = GetComponentInParent<Room>();
+    }
+
+    protected virtual void Start()
+    {
+        parentRoom = GetComponentInParent<Room>();
+        // Preventing crashing on null with Null-Conditional.
         parentRoom?.AddEnemy();
     }
 
-    protected virtual void TakeDamage(float enemyHealth)
+    protected virtual void TakeDamage(float incomingDamage)
     {
-
+        enemyHealth -= incomingDamage;
+        if (enemyHealth <= 0) Die();
     }
 
     protected virtual void Die()
