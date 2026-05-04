@@ -3,7 +3,9 @@ using System.Collections;
 
 public class DoorTrigger : MonoBehaviour
 {
+    // twinDoor is the key part that needs to be eradicated
     public DoorTrigger twinDoor; // Drag the twin door here manually in the Inspector
+
     public int targetRoomID; // The room this door leads to
     public float fadeDuration = 0.5f;
     private bool isTransitioning = false;
