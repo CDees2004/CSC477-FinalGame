@@ -5,9 +5,6 @@ public class DoorTrigger : MonoBehaviour
 {
     public RoomType targetRoomType;
 
-    // twinDoor is the key part that needs to be eradicated
-    public DoorTrigger twinDoor; // Drag the twin door here manually in the Inspector
-
     public float fadeDuration = 0.5f;
     private bool isTransitioning = false;
 
@@ -32,12 +29,6 @@ public class DoorTrigger : MonoBehaviour
         {
             Debug.LogWarning($"No LandingPosition found for door {name}. Defaulting to door position.");
             landingPosition = transform;
-        }
-
-        // Check if twinDoor is manually assigned
-        if (twinDoor == null)
-        {
-            Debug.LogError($"Twin door not assigned for {name}. Assign it manually in the Inspector.");
         }
 
         // Setup audio source

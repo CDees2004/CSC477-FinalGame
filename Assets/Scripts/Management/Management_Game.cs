@@ -113,16 +113,6 @@ public class Management_Game : MonoBehaviour
         if (Management_Rooms.Instance.clearedRooms >= 8) UIState = UIState.GAME_WIN;
     }
 
-    private void StartRun()
-    {
-
-    }
-
-    private void EndRun()
-    {
-        StartRun(); // restarting 
-    }
-
     // Wrapper methods added for button inspector use 
     // --- these methods need to be PUBLIC to show up in the inspector
     public void StartGame()
