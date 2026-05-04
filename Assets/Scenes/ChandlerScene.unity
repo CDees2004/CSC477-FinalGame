@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 79239526}
   - component: {fileID: 79239525}
   m_Layer: 0
-  m_Name: Room3 - SpawnPoint
+  m_Name: Room3 - EnemySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2130,7 +2130,8 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 79239526}
   - {fileID: 1138572443}
-  DoorDirection: 0
+  playerSpawnPoint: {fileID: 0}
+  roomType: 0
 --- !u!1 &173174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,10 +3620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: 
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 640544156}
-  targetRoomID: 2
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -11946,10 +11945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: 
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 1844639700}
-  targetRoomID: 1
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -13608,10 +13605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: 
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 245888842}
-  targetRoomID: 5
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -14311,10 +14306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: Room3_Right
-  transitionDoorDirection: 4
+  targetRoomType: 0
   twinDoor: {fileID: 1342991149}
-  targetRoomID: 1
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -26338,10 +26331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: 
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 1029134997}
-  targetRoomID: 1
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -32198,7 +32189,8 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  DoorDirection: 0
+  playerSpawnPoint: {fileID: 0}
+  roomType: 0
 --- !u!1 &905100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -33233,10 +33225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: Room1_Right
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 826585176}
-  targetRoomID: 5
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -39963,7 +39953,7 @@ GameObject:
   - component: {fileID: 1138572443}
   - component: {fileID: 1138572444}
   m_Layer: 0
-  m_Name: Room3 - SpawnPoint - 2
+  m_Name: Room3 - EnemySpawn - 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46772,7 +46762,7 @@ GameObject:
   - component: {fileID: 1342991151}
   - component: {fileID: 1342991150}
   m_Layer: 6
-  m_Name: door trigger 3
+  m_Name: door trigger 1 to 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46806,10 +46796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: Room1_Left
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 678288628}
-  targetRoomID: 3
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -56508,10 +56496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorID: Room1_Up
-  transitionDoorDirection: 0
+  targetRoomType: 0
   twinDoor: {fileID: 517736143}
-  targetRoomID: 4
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
@@ -62981,7 +62967,8 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  DoorDirection: 0
+  playerSpawnPoint: {fileID: 0}
+  roomType: 0
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -69002,7 +68989,8 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  DoorDirection: 4
+  playerSpawnPoint: {fileID: 0}
+  roomType: 3
 --- !u!1 &2094082438
 GameObject:
   m_ObjectHideFlags: 0
@@ -69305,7 +69293,8 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  DoorDirection: 0
+  playerSpawnPoint: {fileID: 0}
+  roomType: 0
 --- !u!1 &2135540013
 GameObject:
   m_ObjectHideFlags: 0
