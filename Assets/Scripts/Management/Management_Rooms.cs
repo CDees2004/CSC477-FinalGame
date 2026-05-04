@@ -1,15 +1,16 @@
-using HighScore;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro; // Add this to use Dictionary
+
 
 public class Management_Rooms : MonoBehaviour
 {
     public static Management_Rooms Instance;
 
-    private Dictionary<int, Transform> roomDictionary = new Dictionary<int, Transform>();
-    private Dictionary<int, AudioClip> roomAudioDictionary = new Dictionary<int, AudioClip>();
+    private Dictionary<int, RoomType> roomTypeDictionary = new();
+
+    private Dictionary<int, Transform> roomDictionary = new();
+    private Dictionary<int, AudioClip> roomAudioDictionary = new();
     private Camera mainCamera;
     private AudioSource audioSource;
     public int startingRoomID = 1; // Default starting room ID
@@ -39,12 +40,13 @@ public class Management_Rooms : MonoBehaviour
         ChangeRoomAudio(startingRoomID);
     }
 
-    public void RegisterRoom(int roomID, Transform roomTransform, AudioClip roomAudio)
+    public void RegisterRoom(int roomID, Transform roomTransform, AudioClip roomAudio, RoomType type)
     {
         if (!roomDictionary.ContainsKey(roomID))
         {
             roomDictionary.Add(roomID, roomTransform);
             roomAudioDictionary.Add(roomID, roomAudio);
+            roomTypeDictionary.Add(roomID, type);
         }
     }
 
@@ -78,10 +80,24 @@ public class Management_Rooms : MonoBehaviour
         }
     }
 
-    // Selecting a random room from the appropriate rooms for 
-    // each door transition 
-    public void SelectRoom()
+    // Given a type of room, chooses random room from pool of valid selections
+    // Returns the room's ID
+    public int SelectRoom(RoomType type)
     {
+        List<int> validRooms = new();
 
+        foreach (var pair in roomTypeDictionary)
+        {
+            if (pair.Value == type) validRooms.Add(pair.Key);
+        }
+
+        if (validRooms.Count == 0)
+        {
+            print($"No valid rooms of type {type}");
+            return startingRoomID;
+        }
+        
+        // Choosing a random room ID from the valid selections
+        return validRooms[Random.Range(0, validRooms.Count)];
     }
 }

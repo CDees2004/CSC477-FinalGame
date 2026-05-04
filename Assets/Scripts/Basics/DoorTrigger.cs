@@ -3,8 +3,11 @@ using System.Collections;
 
 public class DoorTrigger : MonoBehaviour
 {
+    public RoomType targetRoomType;
+
+    // twinDoor is the key part that needs to be eradicated
     public DoorTrigger twinDoor; // Drag the twin door here manually in the Inspector
-    public int targetRoomID; // The room this door leads to
+
     public float fadeDuration = 0.5f;
     private bool isTransitioning = false;
 
@@ -66,16 +69,21 @@ public class DoorTrigger : MonoBehaviour
         yield return new WaitForSeconds(fadeDuration + 0.2f);
 
         // Move the camera to the new room
-        Management_Rooms.Instance.MoveCameraToRoom(targetRoomID);
+        int nextRoomID = Management_Rooms.Instance.SelectRoom(targetRoomType);
+        Management_Rooms.Instance.MoveCameraToRoom(nextRoomID);
 
-        // Move the player to the twin door's landing position
-        if (twinDoor != null && twinDoor.landingPosition != null)
+        Transform roomTransform = Management_Rooms.Instance.GetRoomCenter(nextRoomID);
+        Room room = roomTransform.GetComponent<Room>();
+
+        // Spawn the player in the room's center ONLY if the spawn was not 
+        // given in the Room
+        if (room.playerSpawnPoint != null)
         {
-            player.position = twinDoor.landingPosition.position;
+            player.position = room.playerSpawnPoint.position;
         }
         else
         {
-            Debug.LogWarning($"Twin door not set up correctly for {name}");
+            player.position = room.transform.position;
         }
 
         // Start fade in

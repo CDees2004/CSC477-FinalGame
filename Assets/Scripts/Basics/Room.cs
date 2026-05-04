@@ -2,7 +2,13 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-// Every Room is responsible for its own enemies
+public enum RoomType
+{
+    ENEMY,
+    SHOP,
+    HEALING,
+    STARTING,
+}
 
 public class Room : MonoBehaviour
 {
@@ -12,6 +18,10 @@ public class Room : MonoBehaviour
     public GameObject enemyPrefab;
     public Transform[] spawnPoints; // Will grab obj's position.
 
+    public Transform playerSpawnPoint;
+
+    public RoomType roomType;
+
     private int enemiesAlive;
     private bool roomCleared = false;
 
@@ -20,7 +30,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio);
+        Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, roomType);
         StartCoroutine(SpawnEnemiesRoutine());
     }
 
@@ -38,7 +48,7 @@ public class Room : MonoBehaviour
         if (enemiesAlive <= 0 && !roomCleared)
         {
             roomCleared = true;
-
+            OnRoomCleared();
         }
     }
 
