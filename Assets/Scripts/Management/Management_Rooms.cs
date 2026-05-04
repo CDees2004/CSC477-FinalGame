@@ -60,7 +60,14 @@ public class Management_Rooms : MonoBehaviour
         if (roomDictionary.TryGetValue(roomID, out Transform roomTransform))
         {
             mainCamera.transform.position = new Vector3(roomTransform.position.x, roomTransform.position.y, mainCamera.transform.position.z);
+
             ChangeRoomAudio(roomID);
+
+            Room room = roomTransform.GetComponent<Room>();
+            if (room != null)
+            {
+                room.ResetRoom();
+            }
         }
     }
 

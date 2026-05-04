@@ -28,12 +28,16 @@ public class Management_CheatCodes : MonoBehaviour
 
     private void Update()
     {
+        // Win
         if (inputActions.UI.CheatCode_GameWin.WasPressedThisFrame())
         {
             print("Numpad 1 pressed");
             Management_Game.Instance.ChangeUIState(FsmUIState.GAME_WIN);
         }
 
+        // Lose
         if (inputActions.UI.CheatCode_GameLose.WasPressedThisFrame()) Management_Game.Instance.ChangeUIState(FsmUIState.GAME_OVER);
+
+        // Clear current room
     }
 }

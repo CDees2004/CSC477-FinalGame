@@ -17,13 +17,15 @@ public class Room : MonoBehaviour
     public AudioClip roomAudio;
     public GameObject enemyPrefab;
     public Transform[] spawnPoints; // Will grab obj's position.
-
     public Transform playerSpawnPoint;
-
     public RoomType roomType;
+    // For enabling/disabling the room particles 
+    public GameObject leftDoorParticle;
+    public GameObject rightDoorParticle;
 
     private int enemiesAlive;
     private bool roomCleared = false;
+    private List<GameObject> spawnedEnemies = new();
 
     private const bool DEBUG = true;
 
@@ -32,6 +34,8 @@ public class Room : MonoBehaviour
     {
         Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, roomType);
         StartCoroutine(SpawnEnemiesRoutine());
+        leftDoorParticle.SetActive(false);
+        rightDoorParticle.SetActive(false);
     }
 
     public void AddEnemy()
@@ -55,6 +59,35 @@ public class Room : MonoBehaviour
     private void OnRoomCleared()
     {
         print($"Room {roomID} cleared.");
+        // Indicating you can now go through the doors
+        leftDoorParticle.SetActive(true);
+        rightDoorParticle.SetActive(true);
+    }
+
+    // For cheat codes 
+    public void ForceClearRoom()
+    {
+        roomCleared = true;
+        OnRoomCleared();
+    }
+
+    public void ResetRoom()
+    {
+        enemiesAlive = 0;
+        roomCleared = false;
+
+        leftDoorParticle.SetActive(false);
+        rightDoorParticle.SetActive(false);
+
+        foreach (var enemy in spawnedEnemies)
+        {
+            if (enemy != null) Destroy(enemy);
+        }
+
+        spawnedEnemies.Clear();
+
+        StopAllCoroutines();
+        StartCoroutine(SpawnEnemiesRoutine());
     }
 
     // ------ Handling Enemy spawning -----
@@ -72,5 +105,6 @@ public class Room : MonoBehaviour
     {
         // Enemy objs call AddEnemy upon Start() on their own.
         var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        spawnedEnemies.Add(enemy);
     }
 }
