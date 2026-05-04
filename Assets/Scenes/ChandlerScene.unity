@@ -2130,7 +2130,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 79239526}
   - {fileID: 1138572443}
-  roomType: 0
+  DoorDirection: 0
 --- !u!1 &173174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,7 +3619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: 
+  transitionDoorDirection: 0
   twinDoor: {fileID: 640544156}
   targetRoomID: 2
   fadeDuration: 0.5
@@ -11945,7 +11946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: 
+  transitionDoorDirection: 0
   twinDoor: {fileID: 1844639700}
   targetRoomID: 1
   fadeDuration: 0.5
@@ -13606,7 +13608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: 
+  transitionDoorDirection: 0
   twinDoor: {fileID: 245888842}
   targetRoomID: 5
   fadeDuration: 0.5
@@ -14308,7 +14311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: Room3_Right
+  transitionDoorDirection: 4
   twinDoor: {fileID: 1342991149}
   targetRoomID: 1
   fadeDuration: 0.5
@@ -26334,7 +26338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: 
+  transitionDoorDirection: 0
   twinDoor: {fileID: 1029134997}
   targetRoomID: 1
   fadeDuration: 0.5
@@ -32193,7 +32198,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  roomType: 3
+  DoorDirection: 0
 --- !u!1 &905100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -33228,7 +33233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: Room1_Right
+  transitionDoorDirection: 0
   twinDoor: {fileID: 826585176}
   targetRoomID: 5
   fadeDuration: 0.5
@@ -38807,9 +38813,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 515885325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371, y: 267}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 113, y: -273}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069026155
@@ -38832,7 +38838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game Title that I won''t forget to put. '
+  m_text: Last Light
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12699a44b08039d4f947b47733549557, type: 2}
   m_sharedMaterial: {fileID: 4142355464400267346, guid: 12699a44b08039d4f947b47733549557, type: 2}
@@ -38898,7 +38904,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -282.87424, w: 0}
+  m_margin: {x: 0, y: 0, z: 60.568516, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -46800,7 +46806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: Room1_Left
+  transitionDoorDirection: 0
   twinDoor: {fileID: 678288628}
   targetRoomID: 3
   fadeDuration: 0.5
@@ -56501,7 +56508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571fb37778d4041d89b68aa267309177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionRoomType: 0
+  doorID: Room1_Up
+  transitionDoorDirection: 0
   twinDoor: {fileID: 517736143}
   targetRoomID: 4
   fadeDuration: 0.5
@@ -62973,7 +62981,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  roomType: 1
+  DoorDirection: 0
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -68994,7 +69002,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 07c2b0f403a1f4d17b2a6da79b3bad5c, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  roomType: 0
+  DoorDirection: 4
 --- !u!1 &2094082438
 GameObject:
   m_ObjectHideFlags: 0
@@ -69297,7 +69305,7 @@ MonoBehaviour:
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
-  roomType: 0
+  DoorDirection: 0
 --- !u!1 &2135540013
 GameObject:
   m_ObjectHideFlags: 0
