@@ -38,6 +38,19 @@ public class Management_CheatCodes : MonoBehaviour
         // Lose
         if (inputActions.UI.CheatCode_GameLose.WasPressedThisFrame()) Management_Game.Instance.ChangeUIState(FsmUIState.GAME_OVER);
 
+        // Pause - Not really a CheatCode but it's simpler to put it here
+        // Only allow pausing when the state is playing
+        if (inputActions.UI.PauseGame.WasPressedThisFrame() && Management_Game.Instance.UIState == FsmUIState.IN_GAME)
+        {
+            print("Pause button pressed. State: IN_GAME");
+            Management_Game.Instance.ChangeUIState(FsmUIState.PAUSED);
+        }
+        // Unpausing
+        else if (inputActions.UI.PauseGame.WasPressedThisFrame() && Management_Game.Instance.UIState == FsmUIState.PAUSED)
+        {
+            Management_Game.Instance.ChangeUIState(FsmUIState.IN_GAME);
+        }
+
         // Clear current room
         if (inputActions.UI.CheatCode_ClearRoom.WasPressedThisFrame())
         {

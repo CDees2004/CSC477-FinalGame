@@ -49,6 +49,12 @@ public class Management_Game : MonoBehaviour
         // to force the other UI elements to turn off if they were
         // left on 
         SetUIElement("StartScreen");
+        UIState = FsmUIState.START_SCREEN;
+    }
+
+    private void Update()
+    {
+        print($"Current state: {UIState}");
     }
 
     // Takes in UI element as arg, set it and only it active

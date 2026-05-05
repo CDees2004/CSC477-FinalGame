@@ -682,6 +682,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""11440e23-05e2-4f32-8be5-b67027f7b691"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1135,6 +1144,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""CheatCode_ClearRoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccc9d805-614c-4e41-86e7-487c70aca550"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1228,6 +1248,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI_CheatCode_GameWin = m_UI.FindAction("CheatCode_GameWin", throwIfNotFound: true);
         m_UI_CheatCode_GameLose = m_UI.FindAction("CheatCode_GameLose", throwIfNotFound: true);
         m_UI_CheatCode_ClearRoom = m_UI.FindAction("CheatCode_ClearRoom", throwIfNotFound: true);
+        m_UI_PauseGame = m_UI.FindAction("PauseGame", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -1506,6 +1527,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CheatCode_GameWin;
     private readonly InputAction m_UI_CheatCode_GameLose;
     private readonly InputAction m_UI_CheatCode_ClearRoom;
+    private readonly InputAction m_UI_PauseGame;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1569,6 +1591,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/CheatCode_ClearRoom".
         /// </summary>
         public InputAction @CheatCode_ClearRoom => m_Wrapper.m_UI_CheatCode_ClearRoom;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/PauseGame".
+        /// </summary>
+        public InputAction @PauseGame => m_Wrapper.m_UI_PauseGame;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1634,6 +1660,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @CheatCode_ClearRoom.started += instance.OnCheatCode_ClearRoom;
             @CheatCode_ClearRoom.performed += instance.OnCheatCode_ClearRoom;
             @CheatCode_ClearRoom.canceled += instance.OnCheatCode_ClearRoom;
+            @PauseGame.started += instance.OnPauseGame;
+            @PauseGame.performed += instance.OnPauseGame;
+            @PauseGame.canceled += instance.OnPauseGame;
         }
 
         /// <summary>
@@ -1684,6 +1713,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @CheatCode_ClearRoom.started -= instance.OnCheatCode_ClearRoom;
             @CheatCode_ClearRoom.performed -= instance.OnCheatCode_ClearRoom;
             @CheatCode_ClearRoom.canceled -= instance.OnCheatCode_ClearRoom;
+            @PauseGame.started -= instance.OnPauseGame;
+            @PauseGame.performed -= instance.OnPauseGame;
+            @PauseGame.canceled -= instance.OnPauseGame;
         }
 
         /// <summary>
@@ -1951,5 +1983,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCheatCode_ClearRoom(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PauseGame" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPauseGame(InputAction.CallbackContext context);
     }
 }

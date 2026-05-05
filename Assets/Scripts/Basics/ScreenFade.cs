@@ -22,8 +22,9 @@ public class ScreenFade : MonoBehaviour
 
         fadeImage = GetComponentInChildren<Image>();
         canvasGroup = GetComponent<CanvasGroup>();
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
+
 
     public void FadeToBlack(float duration)
     {

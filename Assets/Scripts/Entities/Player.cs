@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     {
         // don't allow player movement unless they are in the 
         // actual playing state. 
-        if (Management_Game.Instance.UIState != FsmUIState.IN_GAME && !canMove) return;
+        if (Management_Game.Instance.UIState != FsmUIState.IN_GAME || !canMove) return;
 
         // Use new Input System for movement
         movement = inputActions.Player.Move.ReadValue<Vector2>();
