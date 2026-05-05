@@ -6,6 +6,7 @@ public abstract class Enemy : MonoBehaviour
     protected string enemyIdentifier;
     protected float enemyHealth; 
     protected float enemyDamage;
+    protected bool idle;
 
     // Each enemy must belong to a room
     private Room parentRoom;
@@ -20,6 +21,8 @@ public abstract class Enemy : MonoBehaviour
         parentRoom = GetComponentInParent<Room>();
         // Preventing crashing on null with Null-Conditional.
         parentRoom?.AddEnemy();
+
+        idle = true;
     }
 
     protected virtual void TakeDamage(float incomingDamage)
@@ -32,5 +35,9 @@ public abstract class Enemy : MonoBehaviour
     {
         parentRoom?.OnEnemyDeath();
         Destroy(gameObject);
+    }
+    
+    public virtual void DetectPlayer(){
+        idle = false;
     }
 }
