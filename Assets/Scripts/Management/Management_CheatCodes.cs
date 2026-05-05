@@ -36,7 +36,8 @@ public class Management_CheatCodes : MonoBehaviour
         if (inputActions.UI.CheatCode_GameWin.WasPressedThisFrame())
         {
             print("Numpad 1 pressed");
-            Management_Game.Instance.ChangeUIState(FsmUIState.GAME_WIN);
+            Management_Rooms.clearedRooms = 8;
+            Management_Game.Instance.CheckWinCondition();
         }
 
         // Lose

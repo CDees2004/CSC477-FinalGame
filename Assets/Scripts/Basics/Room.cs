@@ -94,6 +94,8 @@ public class Room : MonoBehaviour
         // Indicating you can now go through the doors
         particles.SetActive(true);
         Management_Rooms.clearedRooms++;
+        print($"Rooms cleared: {Management_Rooms.clearedRooms}");
+        Management_Game.Instance.CheckWinCondition();
     }
 
     // For cheat codes 

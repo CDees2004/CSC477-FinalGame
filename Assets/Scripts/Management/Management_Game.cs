@@ -114,7 +114,8 @@ public class Management_Game : MonoBehaviour
     // If we want to do a win condition instead of endless, call this check somewhere
     public void CheckWinCondition()
     {
-        if (Management_Rooms.clearedRooms >= 8) UIState = UIState.GAME_WIN;
+        print("Checking win condition.");
+        if (Management_Rooms.clearedRooms >= 8) ChangeUIState(UIState.GAME_WIN);
     }
 
     // Wrapper methods added for button inspector use 
