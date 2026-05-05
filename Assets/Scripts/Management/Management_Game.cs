@@ -79,6 +79,7 @@ public class Management_Game : MonoBehaviour
     {
         // Check if it is a redudant requested state swap and reject it
         if (newState == UIState) return;
+        UIState = newState; // Actually changing the state!
 
         switch (newState)
         {
@@ -121,6 +122,7 @@ public class Management_Game : MonoBehaviour
     // --- these methods need to be PUBLIC to show up in the inspector
     public void StartGame()
     {
+        print("Start game called");
         ChangeUIState(UIState.IN_GAME);
     }
 
