@@ -49942,6 +49942,12 @@ MonoBehaviour:
   playerDamage: 50
   healthSlider: {fileID: 1213377839}
   playerSprites: {fileID: 0}
+  attackCooldown: 0
+  attackRadius: 0.6
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 0}
 --- !u!50 &1359212049
 Rigidbody2D:
   serializedVersion: 5
@@ -50100,8 +50106,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.026282787, y: -0.4520601}
+  m_Radius: 0.7680826
 --- !u!212 &1359212052
 SpriteRenderer:
   serializedVersion: 2

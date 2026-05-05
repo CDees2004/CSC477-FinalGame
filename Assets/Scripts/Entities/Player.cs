@@ -23,6 +23,16 @@ public class Player : MonoBehaviour
     private float lastMoveX = 1f; // Default to facing right
     private float lastMoveY = 0f; // Default to facing horizontally
 
+    [Header("Combat")] // I think this will put a label above these params in the Inspector
+    public float attackCooldown = 0.4f;
+    public float attackRadius = 0.6f;
+    public LayerMask enemyLayers;
+
+    public Transform attackPoint;
+
+    private float lastAttackTime;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

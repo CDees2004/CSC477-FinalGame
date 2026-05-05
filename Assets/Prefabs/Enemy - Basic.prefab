@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b39b6970e9db74c94bcbb6f5c5f202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Basic
+  movementSpeed: 0
+  minRedirDist: 0
 --- !u!50 &5528840596197839177
 Rigidbody2D:
   serializedVersion: 5
