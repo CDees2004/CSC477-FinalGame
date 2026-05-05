@@ -8,6 +8,7 @@ public class ShopUI : MonoBehaviour
 
     public GameObject shopPanel;
     private Player currentPlayer;
+    private const bool DEBUG = true;
 
     private void Awake()
     {
@@ -38,6 +39,10 @@ public class ShopUI : MonoBehaviour
         if (currentPlayer == null) return;
 
         currentPlayer.playerMaxHealth += 50.0f;
+        if (DEBUG) print($"Upgrade purchased. New player max health: {currentPlayer.playerMaxHealth}");
+        CloseShop();
+        // Purchasing from the shop clears the current room
+        if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
 
     public void BuySpeedUpgrade()
@@ -45,5 +50,18 @@ public class ShopUI : MonoBehaviour
         if (currentPlayer == null) return;
 
         currentPlayer.moveSpeed += 2;
+        if (DEBUG) print($"Upgrade purchased. New player speed: {currentPlayer.moveSpeed}");
+        CloseShop();
+        if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
+    }
+
+    public void BuyDamageUpgrade()
+    {
+        if (currentPlayer == null) return;
+
+        currentPlayer.playerDamage += 50.0f;
+        if (DEBUG) print($"Upgrade purchased. New player damage: {currentPlayer.playerDamage}");
+        CloseShop();
+        if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
 }
