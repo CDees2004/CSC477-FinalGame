@@ -140,6 +140,12 @@ public class Player : MonoBehaviour
         print($"Health after damage {playerActualHealth}");
 
         UpdateHealthUI();
+        
+        // Trigger lose condition
+        if (playerActualHealth <= 0)
+        {
+            Management_Game.Instance.ChangeUIState(FsmUIState.GAME_OVER);
+        }
     }
 
     public void SetMaxHealth(float newMaxHealth)

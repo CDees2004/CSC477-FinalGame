@@ -45,7 +45,13 @@ public class Enemy_Basic : Enemy
 
     private void OnCollisionEnter2D(Collision2D c){
         if (!c.gameObject.CompareTag("Player")){
-            idleDir = Random.onUnitSphere;
+            idleDir = Random.onUnitSphere; // <- Might remove 
+
+            Player player = c.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(enemyDamage * Time.deltaTime);
+            }
         }
     }
 

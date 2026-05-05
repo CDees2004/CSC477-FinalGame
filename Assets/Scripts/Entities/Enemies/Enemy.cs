@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour
         idle = true;
     }
 
-    protected virtual void TakeDamage(float incomingDamage)
+    public virtual void TakeDamage(float incomingDamage)
     {
         enemyHealth -= incomingDamage;
         if (enemyHealth <= 0) Die();
