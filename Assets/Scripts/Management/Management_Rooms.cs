@@ -37,8 +37,14 @@ public class Management_Rooms : MonoBehaviour
 
     void Start()
     {
-        // Ensure starting room audio plays when the game begins
-        ChangeRoomAudio(startingRoomID);
+        StartCoroutine(InitializeStartingRoom());
+    }
+
+    IEnumerator InitializeStartingRoom()
+    {
+        yield return null; // 
+
+        MoveCameraToRoom(startingRoomID);
     }
 
     public void RegisterRoom(int roomID, Transform roomTransform, AudioClip roomAudio, RoomType type)

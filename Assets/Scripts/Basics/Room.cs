@@ -34,8 +34,18 @@ public class Room : MonoBehaviour
     {
         Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, roomType);
         StartCoroutine(SpawnEnemiesRoutine());
-        leftDoorParticle.SetActive(false);
-        rightDoorParticle.SetActive(false);
+        if (roomType == RoomType.STARTING)
+        {
+            leftDoorParticle.SetActive(true);
+            rightDoorParticle.SetActive(true);
+            roomCleared = true;
+        }
+        else
+        {
+            leftDoorParticle.SetActive(false);
+            rightDoorParticle.SetActive(false);
+        }
+
     }
 
     public void AddEnemy()
@@ -90,9 +100,18 @@ public class Room : MonoBehaviour
         enemiesAlive = 0;
         roomCleared = false;
 
+        if (roomType == RoomType.STARTING)
+        {
+            leftDoorParticle.SetActive(true);
+            rightDoorParticle.SetActive(true);
+            roomCleared = true;
+            return;
+        }
+
         leftDoorParticle.SetActive(false);
         rightDoorParticle.SetActive(false);
 
+        // Resetting enemies
         foreach (var enemy in spawnedEnemies)
         {
             if (enemy != null) Destroy(enemy);
