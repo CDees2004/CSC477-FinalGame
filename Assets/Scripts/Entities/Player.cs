@@ -98,4 +98,9 @@ public class Player : MonoBehaviour
             animator.SetBool("IsMoving", false);
         }
     }
+
+    private void OnDisable()
+    {
+        inputActions.Disable();
+    }
 }
