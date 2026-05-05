@@ -4173,7 +4173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &272090255
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6951,7 +6951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: Light Lost
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12699a44b08039d4f947b47733549557, type: 2}
   m_sharedMaterial: {fileID: 4142355464400267346, guid: 12699a44b08039d4f947b47733549557, type: 2}
@@ -12055,14 +12055,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.69411767}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4694025378656323810, guid: 345300a0f094dd743838c532af1b538a, type: 3}
+  m_Sprite: {fileID: -607203044322259537, guid: 345300a0f094dd743838c532af1b538a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20953,8 +20953,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 2028306372329848203, guid: 345300a0f094dd743838c532af1b538a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -21409,7 +21409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &790960196
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49327,7 +49327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390442955}
   m_Layer: 6
-  m_Name: Collectibles
+  m_Name: Collectibles <- Remove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
