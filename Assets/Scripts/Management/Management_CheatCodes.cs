@@ -39,5 +39,12 @@ public class Management_CheatCodes : MonoBehaviour
         if (inputActions.UI.CheatCode_GameLose.WasPressedThisFrame()) Management_Game.Instance.ChangeUIState(FsmUIState.GAME_OVER);
 
         // Clear current room
+        if (inputActions.UI.CheatCode_ClearRoom.WasPressedThisFrame())
+        {
+            if (Management_Rooms.Instance.CurrentRoom != null)
+            {
+                Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
+            }
+        }
     }
 }

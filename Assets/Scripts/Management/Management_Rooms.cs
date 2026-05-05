@@ -16,6 +16,7 @@ public class Management_Rooms : MonoBehaviour
     public int startingRoomID = 1; // Default starting room ID
 
     public int clearedRooms;
+    public Room CurrentRoom { get; private set; }
 
     void Awake()
     {
@@ -66,6 +67,7 @@ public class Management_Rooms : MonoBehaviour
             Room room = roomTransform.GetComponent<Room>();
             if (room != null)
             {
+                CurrentRoom = room;
                 room.ResetRoom();
             }
         }

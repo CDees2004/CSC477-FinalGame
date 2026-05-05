@@ -59,6 +59,16 @@ public class Room : MonoBehaviour
     private void OnRoomCleared()
     {
         print($"Room {roomID} cleared.");
+
+        // Detroying all enemies if they were not already
+        // This extra bit is in case ForceClearRoom was called
+        foreach (var enemy in spawnedEnemies)
+        {
+            if (enemy != null) Destroy(enemy);
+        }
+
+        spawnedEnemies.Clear();
+
         // Indicating you can now go through the doors
         leftDoorParticle.SetActive(true);
         rightDoorParticle.SetActive(true);
@@ -67,7 +77,11 @@ public class Room : MonoBehaviour
     // For cheat codes 
     public void ForceClearRoom()
     {
+        if (roomCleared) return;
+
         roomCleared = true;
+        enemiesAlive = 0;
+
         OnRoomCleared();
     }
 
