@@ -20,8 +20,9 @@ public class Room : MonoBehaviour
     public Transform playerSpawnPoint;
     public RoomType roomType;
     // For enabling/disabling the room particles 
-    public GameObject leftDoorParticle;
-    public GameObject rightDoorParticle;
+
+
+    public GameObject particles;
 
     private int enemiesAlive;
     private bool roomCleared = false;
@@ -36,14 +37,12 @@ public class Room : MonoBehaviour
         StartCoroutine(SpawnEnemiesRoutine());
         if (roomType == RoomType.STARTING)
         {
-            leftDoorParticle.SetActive(true);
-            rightDoorParticle.SetActive(true);
+            particles.SetActive(true);
             roomCleared = true;
         }
         else
         {
-            leftDoorParticle.SetActive(false);
-            rightDoorParticle.SetActive(false);
+            particles.SetActive(false);
         }
 
     }
@@ -80,8 +79,7 @@ public class Room : MonoBehaviour
         spawnedEnemies.Clear();
 
         // Indicating you can now go through the doors
-        leftDoorParticle.SetActive(true);
-        rightDoorParticle.SetActive(true);
+        particles.SetActive(true);
     }
 
     // For cheat codes 
@@ -102,14 +100,12 @@ public class Room : MonoBehaviour
 
         if (roomType == RoomType.STARTING)
         {
-            leftDoorParticle.SetActive(true);
-            rightDoorParticle.SetActive(true);
+            particles.SetActive(true);
             roomCleared = true;
             return;
         }
 
-        leftDoorParticle.SetActive(false);
-        rightDoorParticle.SetActive(false);
+        particles.SetActive(false);
 
         // Resetting enemies
         foreach (var enemy in spawnedEnemies)
