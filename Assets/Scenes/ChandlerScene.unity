@@ -56545,6 +56545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Particle - Shop
       objectReference: {fileID: 0}
+    - target: {fileID: 1539959530316235148, guid: 22987955cecb1584db849a8c70e4605b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8441699898757736530, guid: 22987955cecb1584db849a8c70e4605b, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.17798999
