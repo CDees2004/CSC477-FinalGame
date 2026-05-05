@@ -2133,6 +2133,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 0}
   roomType: 0
   particles: {fileID: 1371882607}
+  roomCleared: 0
 --- !u!1 &173174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,6 +3626,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 1957676783}
 --- !u!1 &255239872
 GameObject:
   m_ObjectHideFlags: 0
@@ -12081,6 +12083,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 903625456}
 --- !u!1 &522109092
 GameObject:
   m_ObjectHideFlags: 0
@@ -13771,6 +13774,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 0}
 --- !u!61 &640544157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14471,6 +14475,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 168598221}
 --- !u!61 &678288629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26494,6 +26499,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 1957676783}
 --- !u!1 &826621455
 GameObject:
   m_ObjectHideFlags: 0
@@ -32421,6 +32427,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 566080760}
   roomType: 2
   particles: {fileID: 1596000870}
+  roomCleared: 0
 --- !u!1 &905100770
 GameObject:
   m_ObjectHideFlags: 0
@@ -33459,6 +33466,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 2070722620}
 --- !u!61 &1029134998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39692,6 +39700,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 168598221}
 --- !u!1 &1096639278
 GameObject:
   m_ObjectHideFlags: 0
@@ -47324,6 +47333,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 2070722620}
 --- !u!61 &1342991150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -63574,6 +63584,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 0}
   roomType: 1
   particles: {fileID: 1667615402}
+  roomCleared: 0
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -68680,6 +68691,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   landingPosition: {fileID: 0}
   doorSound: {fileID: 8300000, guid: 8955cc7a57dff455b8d2058c8a0c4ea3, type: 3}
+  parentRoom: {fileID: 903625456}
 --- !u!1 &1982516501
 GameObject:
   m_ObjectHideFlags: 0
@@ -69844,6 +69856,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 0}
   roomType: 3
   particles: {fileID: 1304202168}
+  roomCleared: 0
 --- !u!1 &2094082438
 GameObject:
   m_ObjectHideFlags: 0
@@ -70216,6 +70229,7 @@ MonoBehaviour:
   playerSpawnPoint: {fileID: 0}
   roomType: 3
   particles: {fileID: 0}
+  roomCleared: 0
 --- !u!1 &2135540013
 GameObject:
   m_ObjectHideFlags: 0

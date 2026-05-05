@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 public class DoorTrigger : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class DoorTrigger : MonoBehaviour
     [Header("Audio Settings")]
     public AudioClip doorSound; // Sound effect for door transition
     private AudioSource audioSource;
+
+    public Room parentRoom; // Set in inspector
+    private Collider2D doorCollider;
 
     private void Start()
     {
@@ -34,14 +38,21 @@ public class DoorTrigger : MonoBehaviour
         // Setup audio source
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.playOnAwake = false;
+
+        doorCollider = GetComponent<Collider2D>();
+
+        if (parentRoom == null)
+        {
+            Debug.LogError($"No parent room assigned to this door: {name}");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !isTransitioning)
-        {
-            StartCoroutine(TransitionPlayer(other.transform));
-        }
+        if (!other.CompareTag("Player")) return;
+        if (isTransitioning) return;
+
+        StartCoroutine(TransitionPlayer(other.transform));
     }
 
     private IEnumerator TransitionPlayer(Transform player)
@@ -84,4 +95,14 @@ public class DoorTrigger : MonoBehaviour
         if (playerController != null) playerController.SetMovementEnabled(true);
         isTransitioning = false;
     }
+
+    public void LockDoor()
+    {
+        if (doorCollider != null) doorCollider.isTrigger = false;
+    }
+
+    public void UnlockDoor()
+    {
+        if (doorCollider != null) doorCollider.isTrigger = true;
+    }   
 }

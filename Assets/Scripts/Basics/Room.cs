@@ -25,7 +25,7 @@ public class Room : MonoBehaviour
     public GameObject particles;
 
     private int enemiesAlive;
-    private bool roomCleared = false;
+    public bool roomCleared = false;
     private List<GameObject> spawnedEnemies = new();
 
     private const bool DEBUG = true;
@@ -35,10 +35,12 @@ public class Room : MonoBehaviour
     {
         Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, roomType);
         StartCoroutine(SpawnEnemiesRoutine());
+
         if (roomType == RoomType.STARTING)
         {
-            particles.SetActive(true);
             roomCleared = true;
+
+            particles.SetActive(true);
         }
         else
         {
@@ -79,6 +81,16 @@ public class Room : MonoBehaviour
 
         spawnedEnemies.Clear();
 
+        DoorTrigger[] allDoors = FindObjectsByType<DoorTrigger>(FindObjectsSortMode.None);
+
+        foreach (var door in allDoors)
+        {
+            if (door.parentRoom == this)
+            {
+                door.UnlockDoor();
+            }
+        }
+
         // Indicating you can now go through the doors
         particles.SetActive(true);
         Management_Rooms.clearedRooms++;
@@ -113,6 +125,15 @@ public class Room : MonoBehaviour
         foreach (var enemy in spawnedEnemies)
         {
             if (enemy != null) Destroy(enemy);
+        }
+
+        // Reset door unlock status
+        foreach (var door in FindObjectsByType<DoorTrigger>(FindObjectsSortMode.None))
+        {
+            if (door.parentRoom == this)
+            {
+                door.LockDoor();
+            }
         }
 
         spawnedEnemies.Clear();
