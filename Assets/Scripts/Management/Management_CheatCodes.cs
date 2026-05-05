@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 /*
  *  Handles the cheat codes used across the game as a 
@@ -9,12 +10,15 @@ using UnityEngine;
 
 public class Management_CheatCodes : MonoBehaviour
 {
+    // Set in inspector
+    public Player player;
     private PlayerInputActions inputActions;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions(); 
     }
+
 
     private void OnEnable()
     {
@@ -62,7 +66,23 @@ public class Management_CheatCodes : MonoBehaviour
             }
         }
 
-        // Testing health 
+        // Testing damage and healing
+        if (inputActions.UI.CheatCode_TakeDamage.WasPressedThisFrame())
+        {
+            if (player != null)
+            {
+                player.TakeDamage(20.0f);
+                print("Player took 20 damage via CheatCode");
+            }
+        }
 
+        if (inputActions.UI.CheatCode_Heal.WasPressedThisFrame())
+        {
+            if (player != null)
+            {
+                player.HealPlayer(20.0f);
+                print("Player healed 20 health via CheatCode");
+            }
+        }
     }
 }

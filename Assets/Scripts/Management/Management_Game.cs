@@ -56,11 +56,6 @@ public class Management_Game : MonoBehaviour
         settingsPanel.SetActive(false);
     }
 
-    private void Update()
-    {
-        print($"Current state: {UIState}");
-    }
-
     // Takes in UI element as arg, set it and only it active
     // called when the state is changed by other scripts 
     private void SetUIElement(string requestedPanelName)

@@ -41,6 +41,13 @@ public class Player : MonoBehaviour
                 Debug.LogError("PlayerSprites GameObject not found! Assign it manually in the Inspector.");
             }
         }
+
+        // Properly setting up the slider   
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = playerMaxHealth;
+            healthSlider.value = playerActualHealth;
+        }
     }
 
     void Update()
@@ -89,6 +96,8 @@ public class Player : MonoBehaviour
             animator.SetFloat("MoveX", lastMoveX);
             animator.SetFloat("MoveY", lastMoveY);
         }
+
+     
     }
 
     void FixedUpdate()
@@ -115,19 +124,29 @@ public class Player : MonoBehaviour
     // ----- Methods for Player stats ------
     public void HealPlayer(float healAmount)
     {
-        playerActualHealth += 50.0f;
+        playerActualHealth += healAmount;
+        playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
+
+        print($"Health after healing {playerActualHealth}");
+
         UpdateHealthUI();
     }
 
     public void TakeDamage(float incomingDamage)
     {
         playerActualHealth -= incomingDamage;
+        playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
+
+        print($"Health after damage {playerActualHealth}");
+
         UpdateHealthUI();
     }
 
     public void SetMaxHealth(float newMaxHealth)
     {
-        playerActualHealth = newMaxHealth;
+        playerMaxHealth = newMaxHealth;
+        playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
+
         if (healthSlider != null) healthSlider.maxValue = playerMaxHealth;
         UpdateHealthUI();
     }
@@ -135,5 +154,6 @@ public class Player : MonoBehaviour
     private void UpdateHealthUI()
     {
         if (healthSlider != null) healthSlider.value = playerActualHealth;
+        print($"Slider value {healthSlider.value}");
     }
 }

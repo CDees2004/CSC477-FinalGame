@@ -3292,6 +3292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c794640711e8e834cba354c4a37a0205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Management_CheatCodes
+  player: {fileID: 1359212048}
 --- !u!1 &219081809
 GameObject:
   m_ObjectHideFlags: 0
@@ -33564,7 +33565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.042452812, b: 0.042452812, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -49939,7 +49940,7 @@ MonoBehaviour:
   playerMaxHealth: 100
   playerActualHealth: 100
   playerDamage: 50
-  healthSlider: {fileID: 1213377837}
+  healthSlider: {fileID: 1213377839}
   playerSprites: {fileID: 0}
 --- !u!50 &1359212049
 Rigidbody2D:

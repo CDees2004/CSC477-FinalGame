@@ -691,6 +691,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheatCode_TakeDamage"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed2bf27a-b46d-467c-8d86-6f40f179ee03"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheatCode_Heal"",
+                    ""type"": ""Button"",
+                    ""id"": ""66ac0074-b6b2-42ee-ad4f-34eb9c2ce217"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1155,6 +1173,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""PauseGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2db0c3e2-5415-4990-b0c0-be02e9119c49"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatCode_TakeDamage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b34e7766-81a2-4bca-a533-f224238ae419"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatCode_Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1249,6 +1289,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI_CheatCode_GameLose = m_UI.FindAction("CheatCode_GameLose", throwIfNotFound: true);
         m_UI_CheatCode_ClearRoom = m_UI.FindAction("CheatCode_ClearRoom", throwIfNotFound: true);
         m_UI_PauseGame = m_UI.FindAction("PauseGame", throwIfNotFound: true);
+        m_UI_CheatCode_TakeDamage = m_UI.FindAction("CheatCode_TakeDamage", throwIfNotFound: true);
+        m_UI_CheatCode_Heal = m_UI.FindAction("CheatCode_Heal", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -1528,6 +1570,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_CheatCode_GameLose;
     private readonly InputAction m_UI_CheatCode_ClearRoom;
     private readonly InputAction m_UI_PauseGame;
+    private readonly InputAction m_UI_CheatCode_TakeDamage;
+    private readonly InputAction m_UI_CheatCode_Heal;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1596,6 +1640,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @PauseGame => m_Wrapper.m_UI_PauseGame;
         /// <summary>
+        /// Provides access to the underlying input action "UI/CheatCode_TakeDamage".
+        /// </summary>
+        public InputAction @CheatCode_TakeDamage => m_Wrapper.m_UI_CheatCode_TakeDamage;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/CheatCode_Heal".
+        /// </summary>
+        public InputAction @CheatCode_Heal => m_Wrapper.m_UI_CheatCode_Heal;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -1663,6 +1715,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @CheatCode_TakeDamage.started += instance.OnCheatCode_TakeDamage;
+            @CheatCode_TakeDamage.performed += instance.OnCheatCode_TakeDamage;
+            @CheatCode_TakeDamage.canceled += instance.OnCheatCode_TakeDamage;
+            @CheatCode_Heal.started += instance.OnCheatCode_Heal;
+            @CheatCode_Heal.performed += instance.OnCheatCode_Heal;
+            @CheatCode_Heal.canceled += instance.OnCheatCode_Heal;
         }
 
         /// <summary>
@@ -1716,6 +1774,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @CheatCode_TakeDamage.started -= instance.OnCheatCode_TakeDamage;
+            @CheatCode_TakeDamage.performed -= instance.OnCheatCode_TakeDamage;
+            @CheatCode_TakeDamage.canceled -= instance.OnCheatCode_TakeDamage;
+            @CheatCode_Heal.started -= instance.OnCheatCode_Heal;
+            @CheatCode_Heal.performed -= instance.OnCheatCode_Heal;
+            @CheatCode_Heal.canceled -= instance.OnCheatCode_Heal;
         }
 
         /// <summary>
@@ -1990,5 +2054,19 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPauseGame(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CheatCode_TakeDamage" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCheatCode_TakeDamage(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CheatCode_Heal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCheatCode_Heal(InputAction.CallbackContext context);
     }
 }

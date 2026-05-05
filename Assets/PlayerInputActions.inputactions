@@ -605,6 +605,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CheatCode_TakeDamage",
+                    "type": "Button",
+                    "id": "ed2bf27a-b46d-467c-8d86-6f40f179ee03",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CheatCode_Heal",
+                    "type": "Button",
+                    "id": "66ac0074-b6b2-42ee-ad4f-34eb9c2ce217",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1067,6 +1085,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2db0c3e2-5415-4990-b0c0-be02e9119c49",
+                    "path": "<Keyboard>/numpad4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CheatCode_TakeDamage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b34e7766-81a2-4bca-a533-f224238ae419",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CheatCode_Heal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
