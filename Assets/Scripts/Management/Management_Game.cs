@@ -28,8 +28,9 @@ public class Management_Game : MonoBehaviour
     // Singleton because management script 
     public static Management_Game Instance { get; private set; }
     public UIState UIState { get; private set; }
-
+    // Set in Inspector
     public List<GameObject> PanelsUI;
+    public GameObject settingsPanel;
     private Dictionary<string, GameObject> uiCache = new();
 
     private void Awake()
@@ -50,6 +51,9 @@ public class Management_Game : MonoBehaviour
         // left on 
         SetUIElement("StartScreen");
         UIState = FsmUIState.START_SCREEN;
+
+        // Disabling the settings panel at first in case it's left on 
+        settingsPanel.SetActive(false);
     }
 
     private void Update()
@@ -150,7 +154,12 @@ public class Management_Game : MonoBehaviour
 
     public void OpenSettings()
     {
-        // Additional popup nested inside of Settings 
-        // Handle this popup's logic through the use of a Coroutine.
+        // Additional popup nested inside of Paused menu
+        settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
     }
 }

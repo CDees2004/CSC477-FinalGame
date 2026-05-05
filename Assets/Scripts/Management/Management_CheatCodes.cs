@@ -44,11 +44,13 @@ public class Management_CheatCodes : MonoBehaviour
         {
             print("Pause button pressed. State: IN_GAME");
             Management_Game.Instance.ChangeUIState(FsmUIState.PAUSED);
+            Time.timeScale = 0.0f;
         }
         // Unpausing
         else if (inputActions.UI.PauseGame.WasPressedThisFrame() && Management_Game.Instance.UIState == FsmUIState.PAUSED)
         {
             Management_Game.Instance.ChangeUIState(FsmUIState.IN_GAME);
+            Time.timeScale = 1.0f;
         }
 
         // Clear current room
