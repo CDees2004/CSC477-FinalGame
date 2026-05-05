@@ -61,5 +61,8 @@ public class Management_CheatCodes : MonoBehaviour
                 Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
             }
         }
+
+        // Testing health 
+
     }
 }

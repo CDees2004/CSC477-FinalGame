@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Player : MonoBehaviour
     public float playerMaxHealth = 100.0f; // Max that the bar can be 
     public float playerActualHealth = 100.0f;
     public float playerDamage = 50.0f;
+
+    public Slider healthSlider;
 
     private Vector2 movement;
     private Rigidbody2D rb;
@@ -113,5 +116,24 @@ public class Player : MonoBehaviour
     public void HealPlayer(float healAmount)
     {
         playerActualHealth += 50.0f;
+        UpdateHealthUI();
+    }
+
+    public void TakeDamage(float incomingDamage)
+    {
+        playerActualHealth -= incomingDamage;
+        UpdateHealthUI();
+    }
+
+    public void SetMaxHealth(float newMaxHealth)
+    {
+        playerActualHealth = newMaxHealth;
+        if (healthSlider != null) healthSlider.maxValue = playerMaxHealth;
+        UpdateHealthUI();
+    }
+
+    private void UpdateHealthUI()
+    {
+        if (healthSlider != null) healthSlider.value = playerActualHealth;
     }
 }
