@@ -15,7 +15,7 @@ public class Management_Rooms : MonoBehaviour
     private AudioSource audioSource;
     public int startingRoomID = 1; // Default starting room ID
 
-    public int clearedRooms;
+    public static int clearedRooms;
     public Room CurrentRoom { get; private set; }
 
     void Awake()

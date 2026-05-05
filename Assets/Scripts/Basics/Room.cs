@@ -47,6 +47,7 @@ public class Room : MonoBehaviour
 
     }
 
+    // Called upon Enemy spawn by the enemy itself
     public void AddEnemy()
     {
         enemiesAlive++;
@@ -80,6 +81,7 @@ public class Room : MonoBehaviour
 
         // Indicating you can now go through the doors
         particles.SetActive(true);
+        Management_Rooms.clearedRooms++;
     }
 
     // For cheat codes 

@@ -3482,7 +3482,7 @@ GameObject:
   - component: {fileID: 245888841}
   - component: {fileID: 245888840}
   m_Layer: 6
-  m_Name: door trigger 5 to 2
+  m_Name: door trigger 5 to ENEMY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3496,14 +3496,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245888838}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 24.15, y: 1.82, z: 0.1567233}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 32.48, y: 7.07, z: 0.1567233}
   m_LocalScale: {x: 1, y: 3.3260002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 654963508}
   m_Father: {fileID: 2044132381}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!61 &245888840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4297,7 +4297,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -194398514, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -4762,7 +4762,7 @@ Transform:
   m_GameObject: {fileID: 318037285}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.73, y: -3.3300002, z: -0.17388166}
+  m_LocalPosition: {x: -0.9397, y: -3.3300002, z: -0.17388166}
   m_LocalScale: {x: 1.8864989, y: 1.8864989, z: 1.8864989}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4818,11 +4818,11 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -308423628, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.49999982, y: 3.7868445}
+  m_Size: {x: 0.49999982, y: 5.684839}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5701,7 +5701,7 @@ Transform:
   m_GameObject: {fileID: 423528294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: 2.7283, z: -0.17388166}
+  m_LocalPosition: {x: 11, y: 4.6655, z: -0.17388166}
   m_LocalScale: {x: -1.886499, y: 1.8864989, z: 1.8864989}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5757,11 +5757,11 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -308423628, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.5, y: 3.4741883}
+  m_Size: {x: 0.5, y: 1.4203871}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -13589,7 +13589,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -308423628, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -20093,7 +20093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingRoomID: 1
-  clearedRooms: 0
 --- !u!1 &723719286
 GameObject:
   m_ObjectHideFlags: 0
@@ -26352,7 +26351,7 @@ GameObject:
   - component: {fileID: 826585175}
   - component: {fileID: 826585174}
   m_Layer: 6
-  m_Name: door trigger 5 to 1
+  m_Name: door trigger 5 to ENEMY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32206,6 +32205,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872284257}
   m_CullTransparentMesh: 1
+--- !u!1001 &872745046
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1667615403}
+    m_Modifications:
+    - target: {fileID: 2660704495193264006, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_Name
+      value: Door Particle - Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8711167
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17799
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 42.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17388166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+--- !u!4 &872745047 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+  m_PrefabInstance: {fileID: 872745046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &892990862
 GameObject:
   m_ObjectHideFlags: 0
@@ -38735,7 +38804,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 937097673, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 0.6981132, g: 0.6487184, b: 0.6487184, a: 1}
+  m_Color: {r: 0.29810432, g: 0.46685615, b: 0.7264151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -45753,7 +45822,7 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -308423628, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -46079,6 +46148,7 @@ Transform:
   - {fileID: 1304202169}
   - {fileID: 1371882608}
   - {fileID: 1596000871}
+  - {fileID: 1667615403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280927023
@@ -50602,6 +50672,76 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &1654744322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1667615403}
+    m_Modifications:
+    - target: {fileID: 2660704495193264006, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_Name
+      value: Door Particle - Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2905432
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17799
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.8677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.54057
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17388166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 270
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+--- !u!4 &1654744323 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4431476861081648945, guid: fa866ae0374a7704da8d631ae16b3f18, type: 3}
+  m_PrefabInstance: {fileID: 1654744322}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1655688215
 GameObject:
   m_ObjectHideFlags: 0
@@ -50885,6 +51025,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1667615402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667615403}
+  m_Layer: 0
+  m_Name: ShopRoom1 - Room 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667615403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667615402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1654744323}
+  - {fileID: 872745047}
+  m_Father: {fileID: 1275048036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669547054
 GameObject:
   m_ObjectHideFlags: 0
@@ -57144,7 +57317,7 @@ Transform:
   m_GameObject: {fileID: 1884822383}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11, y: -2.1601, z: -0.17388166}
+  m_LocalPosition: {x: 11, y: -2.0265, z: -0.17388166}
   m_LocalScale: {x: -1.886499, y: 1.8864989, z: 1.8864989}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57200,11 +57373,11 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: -308423628, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.5, y: 1.8306947}
+  m_Size: {x: 0.5, y: 1.972336}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -63302,7 +63475,7 @@ GameObject:
   - component: {fileID: 1957676783}
   - component: {fileID: 1957676782}
   m_Layer: 3
-  m_Name: Room 5
+  m_Name: ShopRoom1 - Room 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63395,12 +63568,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomID: 5
-  roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
+  roomAudio: {fileID: 8300000, guid: 981bd05c29a40d14b817b84aa21c7051, type: 3}
   enemyPrefab: {fileID: 0}
   spawnPoints: []
   playerSpawnPoint: {fileID: 0}
   roomType: 1
-  particles: {fileID: 0}
+  particles: {fileID: 1667615402}
 --- !u!1 &1964645116
 GameObject:
   m_ObjectHideFlags: 0
@@ -68894,7 +69067,7 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: -308423628, guid: ac4f35b5ed28a274ba7e28e43f6d82e8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.28097185, g: 0.4651387, b: 0.7735849, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -70041,7 +70214,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 0}
   spawnPoints: []
   playerSpawnPoint: {fileID: 0}
-  roomType: 1
+  roomType: 3
   particles: {fileID: 0}
 --- !u!1 &2135540013
 GameObject:
