@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Player stats to be upgraded
     public float moveSpeed = 5f;
+    public float playerMaxHealth = 100.0f; // Max that the bar can be 
+    public float playerActualHealth = 100.0f;
+
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator animator;
@@ -102,5 +106,11 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         inputActions.Disable();
+    }
+
+    // ----- Methods for Player stats ------
+    public void HealPlayer(float healAmount)
+    {
+        playerActualHealth += 50.0f;
     }
 }
