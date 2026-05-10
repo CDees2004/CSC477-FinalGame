@@ -709,6 +709,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CheatCode_KillEnemy"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab00a29f-ff23-45e3-babe-aa7fab5c95bd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1195,6 +1204,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""CheatCode_Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f2185f4-e4d0-4d2c-9943-1ab5dc12d2e5"",
+                    ""path"": ""<Keyboard>/numpad6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CheatCode_KillEnemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1291,6 +1311,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_UI_PauseGame = m_UI.FindAction("PauseGame", throwIfNotFound: true);
         m_UI_CheatCode_TakeDamage = m_UI.FindAction("CheatCode_TakeDamage", throwIfNotFound: true);
         m_UI_CheatCode_Heal = m_UI.FindAction("CheatCode_Heal", throwIfNotFound: true);
+        m_UI_CheatCode_KillEnemy = m_UI.FindAction("CheatCode_KillEnemy", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -1572,6 +1593,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_PauseGame;
     private readonly InputAction m_UI_CheatCode_TakeDamage;
     private readonly InputAction m_UI_CheatCode_Heal;
+    private readonly InputAction m_UI_CheatCode_KillEnemy;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1648,6 +1670,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @CheatCode_Heal => m_Wrapper.m_UI_CheatCode_Heal;
         /// <summary>
+        /// Provides access to the underlying input action "UI/CheatCode_KillEnemy".
+        /// </summary>
+        public InputAction @CheatCode_KillEnemy => m_Wrapper.m_UI_CheatCode_KillEnemy;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -1721,6 +1747,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @CheatCode_Heal.started += instance.OnCheatCode_Heal;
             @CheatCode_Heal.performed += instance.OnCheatCode_Heal;
             @CheatCode_Heal.canceled += instance.OnCheatCode_Heal;
+            @CheatCode_KillEnemy.started += instance.OnCheatCode_KillEnemy;
+            @CheatCode_KillEnemy.performed += instance.OnCheatCode_KillEnemy;
+            @CheatCode_KillEnemy.canceled += instance.OnCheatCode_KillEnemy;
         }
 
         /// <summary>
@@ -1780,6 +1809,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @CheatCode_Heal.started -= instance.OnCheatCode_Heal;
             @CheatCode_Heal.performed -= instance.OnCheatCode_Heal;
             @CheatCode_Heal.canceled -= instance.OnCheatCode_Heal;
+            @CheatCode_KillEnemy.started -= instance.OnCheatCode_KillEnemy;
+            @CheatCode_KillEnemy.performed -= instance.OnCheatCode_KillEnemy;
+            @CheatCode_KillEnemy.canceled -= instance.OnCheatCode_KillEnemy;
         }
 
         /// <summary>
@@ -2068,5 +2100,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCheatCode_Heal(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CheatCode_KillEnemy" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCheatCode_KillEnemy(InputAction.CallbackContext context);
     }
 }

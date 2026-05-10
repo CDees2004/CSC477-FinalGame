@@ -26,7 +26,7 @@ public class Room : MonoBehaviour
 
     private int enemiesAlive;
     public bool roomCleared = false;
-    private List<GameObject> spawnedEnemies = new();
+    public List<GameObject> spawnedEnemies = new();
 
     private const bool DEBUG = true;
 
@@ -149,8 +149,10 @@ public class Room : MonoBehaviour
     {
         foreach (var point in spawnPoints)
         {
-            if (DEBUG) print("Enemy spawned.");
-            SpawnEnemy(point.position);
+            // Want to scale spawning off round
+                if (DEBUG) print("Enemy spawned.");
+                SpawnEnemy(point.position);
+            
             yield return new WaitForSeconds(0.2f);
         }
     }

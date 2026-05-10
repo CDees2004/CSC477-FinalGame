@@ -107,7 +107,12 @@ public class Player : MonoBehaviour
             animator.SetFloat("MoveY", lastMoveY);
         }
 
-     
+        // Attacking on input ONLY if the cooldown has passed
+        if (inputActions.Player.Attack.WasPressedThisFrame() && Time.time >= lastAttackTime)
+        {
+            PlayerAttack();
+            print("Player attack fired");
+        }
     }
 
     void FixedUpdate()
@@ -158,6 +163,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void PlayerAttack()
+    {
+        // For cooldowns
+        lastAttackTime = Time.time;
+
+        Vector2 attackDirection = new Vector2(lastMoveX, lastMoveY).normalized;
+        attackPoint.localPosition = attackDirection * 0.75f;
+
+        // Playing our actual attack animation
+        animator.SetTrigger("Attack");
+    }
+
+    // Need to call this WITHIN the animation
+    public void DealDamage()
+    {
+        // Using list to account for hitting multiple enemies at once
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayers);
+
+        foreach (Collider2D enemyCollider in hitEnemies)
+        {
+            // If there is an enemy collider in the overlap, dmg that enemy by player dmg
+            Enemy enemy = enemyCollider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(playerDamage);
+            }
+        }
+    }
+
     public void SetMaxHealth(float newMaxHealth)
     {
         playerMaxHealth = newMaxHealth;
@@ -171,5 +205,15 @@ public class Player : MonoBehaviour
     {
         if (healthSlider != null) healthSlider.value = playerActualHealth;
         print($"Slider value {healthSlider.value}");
+    }
+
+    // Debugging attack 
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+
+        print("On gizmos ran");
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 }

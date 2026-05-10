@@ -623,6 +623,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CheatCode_KillEnemy",
+                    "type": "Button",
+                    "id": "ab00a29f-ff23-45e3-babe-aa7fab5c95bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1107,6 +1116,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CheatCode_Heal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f2185f4-e4d0-4d2c-9943-1ab5dc12d2e5",
+                    "path": "<Keyboard>/numpad6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CheatCode_KillEnemy",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

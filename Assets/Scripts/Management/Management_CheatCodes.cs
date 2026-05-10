@@ -85,5 +85,14 @@ public class Management_CheatCodes : MonoBehaviour
                 print("Player healed 20 health via CheatCode");
             }
         }
+
+        // Kill one enemy in the current room
+        if (inputActions.UI.CheatCode_KillEnemy.WasPressedThisFrame())
+        {
+            if (Management_Rooms.Instance.CurrentRoom != null)
+            {
+               // Random.Range(Management_Rooms.Instance.CurrentRoom.spawnedEnemies).KillEnemy();
+            }
+        }
     }
 }
