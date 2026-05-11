@@ -52,6 +52,7 @@ public class Management_Game : MonoBehaviour
         SetUIElement("StartScreen");
         UIState = FsmUIState.START_SCREEN;
 
+
         // Disabling the settings panel at first in case it's left on 
         settingsPanel.SetActive(false);
     }

@@ -8,6 +8,7 @@ namespace Assets.Scripts.Shop
         private bool playerInHealZone;
         private Player player;
         private PlayerInputActions inputActions;
+        public GameObject interactionPopup;
 
         private void Awake()
         {
@@ -30,6 +31,7 @@ namespace Assets.Scripts.Shop
 
             playerInHealZone = true;
             player = collider.GetComponent<Player>();
+            interactionPopup.SetActive(true);
             print("Player in heal zone.");
         }
 
@@ -37,6 +39,7 @@ namespace Assets.Scripts.Shop
         {
             if (!collider.CompareTag("Player")) return;
 
+            interactionPopup.SetActive(false);
             playerInHealZone = false;
             player = null;
         }
@@ -49,6 +52,7 @@ namespace Assets.Scripts.Shop
             if (inputActions.Player.Interact.WasPressedThisFrame())
             {
                 player.HealPlayer(50.0f);
+                interactionPopup.SetActive(false);
                 // Clearing the room after healing 
                 if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
             }

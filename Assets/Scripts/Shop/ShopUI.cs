@@ -7,6 +7,7 @@ public class ShopUI : MonoBehaviour
     public static ShopUI Instance;
 
     public GameObject shopPanel;
+
     private Player currentPlayer;
     private const bool DEBUG = true;
 
@@ -30,6 +31,7 @@ public class ShopUI : MonoBehaviour
         shopPanel.SetActive(false);
         // Unpausing
         Time.timeScale = 1.0f;
+        // Removing the interaction popup 
     }
 
     // ----- Upgrades to purchase -----

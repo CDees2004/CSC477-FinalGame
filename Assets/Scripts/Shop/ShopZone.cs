@@ -5,6 +5,7 @@ public class ShopZone : MonoBehaviour
     private bool playerInShopZone;
     private Player player;
     private PlayerInputActions inputActions;
+    public GameObject interactionPopup;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class ShopZone : MonoBehaviour
 
         playerInShopZone = true;
         player = other.GetComponent<Player>();
+        interactionPopup.SetActive(true);
         print("Player in zone");
     }
 
@@ -34,6 +36,7 @@ public class ShopZone : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
+        interactionPopup.SetActive(false);
         playerInShopZone = false;
         player = null; // Might explode
     }
@@ -43,7 +46,11 @@ public class ShopZone : MonoBehaviour
         if (!playerInShopZone) return;
 
         // Checking for interact key when within the shop zone
-        if (inputActions.Player.Interact.WasPressedThisFrame()) ShopUI.Instance.OpenShop(player);
+        if (inputActions.Player.Interact.WasPressedThisFrame())
+        {
+            ShopUI.Instance.OpenShop(player);
+            interactionPopup.SetActive(false);
+        }
         print("Player hit shop button in zone");
     }
 }
