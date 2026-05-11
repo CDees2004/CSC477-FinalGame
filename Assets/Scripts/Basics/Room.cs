@@ -33,6 +33,7 @@ public class Room : MonoBehaviour
         Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, roomType);
 
         // Spawning enemies only in the current room
+        // Called upon room entry ONCE
         if (this == Management_Rooms.Instance.CurrentRoom)
         {
             StartCoroutine(SpawnEnemiesRoutine());
@@ -49,11 +50,6 @@ public class Room : MonoBehaviour
             particles.SetActive(false);
         }
 
-    }
-
-    private void Update()
-    {
-   
     }
 
     // Called upon Enemy spawn by the enemy itself
@@ -161,7 +157,7 @@ public class Room : MonoBehaviour
         foreach (var point in spawnPoints)
         {
             // Want to scale spawning off round
-            for (int i = 0; i <= Management_Rooms.clearedRooms; i++)
+            for (int i = 0; i <= Management_Rooms.clearedEnemyRooms; i++)
             {
                 if (DEBUG) print("Enemy spawned.");
                 SpawnEnemy(point.position);
