@@ -19,22 +19,24 @@ public class Room : MonoBehaviour
     public Transform[] spawnPoints; // Will grab obj's position.
     public Transform playerSpawnPoint;
     public RoomType roomType;
-    // For enabling/disabling the room particles 
-
-
-    public GameObject particles;
-
-    private int enemiesAlive;
     public bool roomCleared = false;
     public List<GameObject> spawnedEnemies = new();
 
+    // For enabling/disabling the room particles 
+    public GameObject particles;
+    private int enemiesAlive;
     private const bool DEBUG = true;
 
 
     private void Start()
     {
         Management_Rooms.Instance.RegisterRoom(roomID, transform, roomAudio, roomType);
-        StartCoroutine(SpawnEnemiesRoutine());
+
+        // Spawning enemies only in the current room
+        if (this == Management_Rooms.Instance.CurrentRoom)
+        {
+            StartCoroutine(SpawnEnemiesRoutine());
+        }
 
         if (roomType == RoomType.STARTING)
         {
@@ -47,6 +49,11 @@ public class Room : MonoBehaviour
             particles.SetActive(false);
         }
 
+    }
+
+    private void Update()
+    {
+   
     }
 
     // Called upon Enemy spawn by the enemy itself
@@ -150,8 +157,11 @@ public class Room : MonoBehaviour
         foreach (var point in spawnPoints)
         {
             // Want to scale spawning off round
+            for (int i = 0; i <= Management_Rooms.clearedRooms; i++)
+            {
                 if (DEBUG) print("Enemy spawned.");
                 SpawnEnemy(point.position);
+            }
             
             yield return new WaitForSeconds(0.2f);
         }
