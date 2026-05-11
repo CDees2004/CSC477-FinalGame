@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public Transform attackPoint;
 
     private float lastAttackTime;
+    private const bool DEBUG = true;
 
 
     void Start()
@@ -142,7 +143,7 @@ public class Player : MonoBehaviour
         playerActualHealth += healAmount;
         playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
 
-        print($"Health after healing {playerActualHealth}");
+        if (DEBUG) print($"Health after healing {playerActualHealth}");
 
         UpdateHealthUI();
     }
@@ -152,7 +153,7 @@ public class Player : MonoBehaviour
         playerActualHealth -= incomingDamage;
         playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
 
-        print($"Health after damage {playerActualHealth}");
+        if (DEBUG) print($"Health after damage {playerActualHealth}");
 
         UpdateHealthUI();
         
@@ -204,7 +205,7 @@ public class Player : MonoBehaviour
     private void UpdateHealthUI()
     {
         if (healthSlider != null) healthSlider.value = playerActualHealth;
-        print($"Slider value {healthSlider.value}");
+        if (DEBUG) print($"Slider value {healthSlider.value}");
     }
 
     // Debugging attack 
@@ -212,7 +213,6 @@ public class Player : MonoBehaviour
     {
         if (attackPoint == null) return;
 
-        print("On gizmos ran");
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }

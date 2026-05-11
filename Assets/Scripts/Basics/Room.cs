@@ -73,8 +73,6 @@ public class Room : MonoBehaviour
 
     private void OnRoomCleared()
     {
-        print($"Room {roomID} cleared.");
-
         // Detroying all enemies if they were not already
         // This extra bit is in case ForceClearRoom was called
         foreach (var enemy in spawnedEnemies)
@@ -99,7 +97,7 @@ public class Room : MonoBehaviour
         Management_Rooms.clearedRooms++;
         if (this.roomType == RoomType.ENEMY) Management_Rooms.clearedEnemyRooms++;
 
-        if (DEBUG) print($"Rooms cleared: {Management_Rooms.clearedRooms}");
+        if (DEBUG) print($"Enemy rooms cleared: {Management_Rooms.clearedEnemyRooms}");
 
         // Checking the win condition after every room clearance
         Management_Game.Instance.CheckWinCondition();
@@ -159,7 +157,6 @@ public class Room : MonoBehaviour
             // Want to scale spawning off round
             for (int i = 0; i <= Management_Rooms.clearedEnemyRooms; i++)
             {
-                if (DEBUG) print("Enemy spawned.");
                 SpawnEnemy(point.position);
             }
             

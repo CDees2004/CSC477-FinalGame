@@ -53,7 +53,6 @@ public class Enemy_Basic : Enemy
             if (player != null)
             {
                 player.TakeDamage(enemyDamage);
-                print("Enemy touching player");
             }
         }
 
@@ -67,7 +66,6 @@ public class Enemy_Basic : Enemy
             if (player != null)
             {
                 player.TakeDamage(enemyDamage * Time.deltaTime);
-                print("Enemy touching player");
             }
         }
     }

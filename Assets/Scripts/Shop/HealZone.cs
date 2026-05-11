@@ -32,7 +32,6 @@ namespace Assets.Scripts.Shop
             playerInHealZone = true;
             player = collider.GetComponent<Player>();
             interactionPopup.SetActive(true);
-            print("Player in heal zone.");
         }
 
         private void OnTriggerExit2D(Collider2D collider)

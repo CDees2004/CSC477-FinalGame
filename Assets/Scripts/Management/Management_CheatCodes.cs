@@ -35,7 +35,6 @@ public class Management_CheatCodes : MonoBehaviour
         // Win
         if (inputActions.UI.CheatCode_GameWin.WasPressedThisFrame())
         {
-            print("Numpad 1 pressed");
             Management_Rooms.clearedRooms = 8;
             Management_Game.Instance.CheckWinCondition();
         }
@@ -47,7 +46,6 @@ public class Management_CheatCodes : MonoBehaviour
         // Only allow pausing when the state is playing
         if (inputActions.UI.PauseGame.WasPressedThisFrame() && Management_Game.Instance.UIState == FsmUIState.IN_GAME)
         {
-            print("Pause button pressed. State: IN_GAME");
             Management_Game.Instance.ChangeUIState(FsmUIState.PAUSED);
             Time.timeScale = 0.0f;
         }
@@ -73,7 +71,6 @@ public class Management_CheatCodes : MonoBehaviour
             if (player != null)
             {
                 player.TakeDamage(20.0f);
-                print("Player took 20 damage via CheatCode");
             }
         }
 
@@ -82,7 +79,6 @@ public class Management_CheatCodes : MonoBehaviour
             if (player != null)
             {
                 player.HealPlayer(20.0f);
-                print("Player healed 20 health via CheatCode");
             }
         }
 

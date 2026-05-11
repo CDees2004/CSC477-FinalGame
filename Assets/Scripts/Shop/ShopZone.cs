@@ -29,7 +29,6 @@ public class ShopZone : MonoBehaviour
         playerInShopZone = true;
         player = other.GetComponent<Player>();
         interactionPopup.SetActive(true);
-        print("Player in zone");
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -51,6 +50,5 @@ public class ShopZone : MonoBehaviour
             ShopUI.Instance.OpenShop(player);
             interactionPopup.SetActive(false);
         }
-        print("Player hit shop button in zone");
     }
 }

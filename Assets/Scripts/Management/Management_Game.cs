@@ -117,14 +117,14 @@ public class Management_Game : MonoBehaviour
     {
         print("Checking win condition.");
         // Checking just == rather than <= to allow for endless mode
-        if (Management_Rooms.clearedEnemyRooms == 8) ChangeUIState(UIState.GAME_WIN);
+        // ONLY check if we are in an enemy room
+        if (Management_Rooms.clearedEnemyRooms == 8 && Management_Rooms.Instance.CurrentRoom.roomType == RoomType.ENEMY) ChangeUIState(UIState.GAME_WIN);
     }
 
     // Wrapper methods added for button inspector use 
     // --- these methods need to be PUBLIC to show up in the inspector
     public void StartGame()
     {
-        print("Start game called");
         ChangeUIState(UIState.IN_GAME);
     }
 
@@ -137,7 +137,6 @@ public class Management_Game : MonoBehaviour
     // in the Button's inspector widget 
     public void QuitGame()
     {
-        print("Quit game called");
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
 #else
