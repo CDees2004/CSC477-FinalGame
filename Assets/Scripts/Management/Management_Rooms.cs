@@ -16,6 +16,8 @@ public class Management_Rooms : MonoBehaviour
     public int startingRoomID = 1; // Default starting room ID
 
     public static int clearedRooms;
+    public static int clearedEnemyRooms;
+
     public Room CurrentRoom { get; private set; }
 
     void Awake()

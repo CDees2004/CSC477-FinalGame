@@ -101,7 +101,11 @@ public class Room : MonoBehaviour
         // Indicating you can now go through the doors
         particles.SetActive(true);
         Management_Rooms.clearedRooms++;
-        print($"Rooms cleared: {Management_Rooms.clearedRooms}");
+        if (this.roomType == RoomType.ENEMY) Management_Rooms.clearedEnemyRooms++;
+
+        if (DEBUG) print($"Rooms cleared: {Management_Rooms.clearedRooms}");
+
+        // Checking the win condition after every room clearance
         Management_Game.Instance.CheckWinCondition();
     }
 

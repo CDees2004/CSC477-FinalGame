@@ -116,7 +116,7 @@ public class Management_Game : MonoBehaviour
     {
         print("Checking win condition.");
         // Checking just == rather than <= to allow for endless mode
-        if (Management_Rooms.clearedRooms == 8) ChangeUIState(UIState.GAME_WIN);
+        if (Management_Rooms.clearedEnemyRooms == 8) ChangeUIState(UIState.GAME_WIN);
     }
 
     // Wrapper methods added for button inspector use 
