@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -206,8 +207,19 @@ public class Player : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(playerDamage);
+                if (DEBUG) print($"Hit connected. Enemy took {playerDamage} damage.");
+                // Quick pausing the game for a bit of Art of Screenshake sauce 
+                StartCoroutine(QuickGamePause(0.1f));
             }
         }
+    }
+
+    private IEnumerator QuickGamePause(float pauseDuration)
+    {
+        Time.timeScale = 0.0f;
+        yield return new WaitForSecondsRealtime(pauseDuration);
+        if (DEBUG) print($"paused the game for {pauseDuration}");
+        Time.timeScale = 1.0f;
     }
 
     public void SetMaxHealth(float newMaxHealth)
