@@ -1,4 +1,3 @@
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
@@ -7,9 +6,7 @@ public abstract class Enemy : MonoBehaviour
     protected float enemyHealth; 
     protected float enemyDamage;
     protected bool idle;
-
-    // Each enemy must belong to a room
-    private Room parentRoom;
+    protected Room parentRoom; // Each enemy must belong to a room
 
     private const bool DEBUG = true;
 
@@ -20,9 +17,9 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        parentRoom = GetComponentInParent<Room>();
-        // Preventing crashing on null with Null-Conditional.
-        parentRoom?.AddEnemy();
+        if (parentRoom == null) Debug.LogError($"{gameObject.name} has no parent room.");
+        else
+            parentRoom.AddEnemy();
 
         idle = true;
     }
@@ -45,5 +42,10 @@ public abstract class Enemy : MonoBehaviour
     
     public virtual void DetectPlayer(){
         idle = false;
+    }
+
+    public void SetParentRoom(Room room)
+    {
+        parentRoom = room;
     }
 }

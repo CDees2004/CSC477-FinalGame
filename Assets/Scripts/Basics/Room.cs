@@ -169,7 +169,12 @@ public class Room : MonoBehaviour
     private void SpawnEnemy(Vector2 spawnPosition)
     {
         // Enemy objs call AddEnemy upon Start() on their own.
-        var enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-        spawnedEnemies.Add(enemy);
+        var enemyObj = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+        // Setting the proper parent room for the clearance logic to work
+        Enemy enemy = enemyObj.GetComponent<Enemy>();
+        enemy.SetParentRoom(this);
+        
+        spawnedEnemies.Add(enemyObj);
     }
 }
