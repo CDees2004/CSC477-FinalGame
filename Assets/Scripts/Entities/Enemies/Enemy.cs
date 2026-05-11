@@ -11,6 +11,8 @@ public abstract class Enemy : MonoBehaviour
     // Each enemy must belong to a room
     private Room parentRoom;
 
+    private const bool DEBUG = true;
+
     protected virtual void Awake()
     {
         parentRoom = GetComponentInParent<Room>();
@@ -29,11 +31,15 @@ public abstract class Enemy : MonoBehaviour
     {
         enemyHealth -= incomingDamage;
         if (enemyHealth <= 0) Die();
+        if (DEBUG) print($"Enemy took {incomingDamage} damage.");
     }
 
     protected virtual void Die()
     {
-        parentRoom?.OnEnemyDeath();
+        if (parentRoom == null) Debug.LogError($"{gameObject.name} has no parent room assigned.");
+        else 
+            parentRoom.OnEnemyDeath();
+
         Destroy(gameObject);
     }
     

@@ -56,13 +56,15 @@ public class Room : MonoBehaviour
     public void AddEnemy()
     {
         enemiesAlive++;
-        if (DEBUG) print($"Enemies: {enemiesAlive}.");
+        if (DEBUG) print($"Added enemy. Enemies alive: {enemiesAlive}.");
     }
 
     // Called my enemy instances
     public void OnEnemyDeath()
     {
         enemiesAlive--;
+
+        if (DEBUG) print($"Enemy died. Enemies alive: {enemiesAlive}.");
 
         if (enemiesAlive <= 0 && !roomCleared)
         {
