@@ -38,9 +38,12 @@ public class ShopUI : MonoBehaviour
     {
         if (currentPlayer == null) return;
 
-        currentPlayer.playerMaxHealth += 50.0f;
+        currentPlayer.SetMaxHealth(currentPlayer.playerActualHealth + 50.0f);
+
         if (DEBUG) print($"Upgrade purchased. New player max health: {currentPlayer.playerMaxHealth}");
+
         CloseShop();
+
         // Purchasing from the shop clears the current room
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
