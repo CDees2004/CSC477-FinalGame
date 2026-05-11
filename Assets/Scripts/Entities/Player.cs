@@ -23,12 +23,12 @@ public class Player : MonoBehaviour
     private float lastMoveX = 1f; // Default to facing right
     private float lastMoveY = 0f; // Default to facing horizontally
 
-    [Header("Combat")] // I think this will put a label above these params in the Inspector
+    [Header("Combat")] // Putting a label above these params in the Inspector
     public float attackCooldown = 0.4f;
     public float attackRadius = 0.6f;
     public LayerMask enemyLayers;
-
     public Transform attackPoint;
+    public GameObject attackAnimation;
 
     private float lastAttackTime;
     private const bool DEBUG = true;
@@ -59,6 +59,9 @@ public class Player : MonoBehaviour
             healthSlider.maxValue = playerMaxHealth;
             healthSlider.value = playerActualHealth;
         }
+
+        // Since attack anim is a child of Player, turn off until ready
+        attackAnimation.SetActive(false);
     }
 
     void Update()
@@ -169,11 +172,22 @@ public class Player : MonoBehaviour
         // For cooldowns
         lastAttackTime = Time.time;
 
+        attackAnimation.SetActive(true);
+
         Vector2 attackDirection = new Vector2(lastMoveX, lastMoveY).normalized;
         attackPoint.localPosition = attackDirection * 0.75f;
 
-        // Playing our actual attack animation
-        animator.SetTrigger("Attack");
+        // Trying this weirdo stuff to get this animation to work
+        Animator attackAnimator = attackAnimation.GetComponent<Animator>();
+        attackAnimator.Play("Attack_Separate");
+
+        Invoke(nameof(DisableAttackVisual), 0.3f);
+    }
+
+    // This is painful
+    private void DisableAttackVisual()
+    {
+        attackAnimation.SetActive(false);
     }
 
     // Need to call this WITHIN the animation
