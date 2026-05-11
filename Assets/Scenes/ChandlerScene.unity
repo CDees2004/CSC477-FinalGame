@@ -55144,7 +55144,7 @@ MonoBehaviour:
   playerDamage: 50
   healthSlider: {fileID: 1213377839}
   playerSprites: {fileID: 0}
-  attackCooldown: 0
+  attackCooldown: 0.8
   attackRadius: 0.6
   enemyLayers:
     serializedVersion: 2

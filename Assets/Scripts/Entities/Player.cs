@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private float lastMoveY = 0f; // Default to facing horizontally
 
     [Header("Combat")] // Putting a label above these params in the Inspector
+    // REMEMBER: inspector values overwrite these values.
     public float attackCooldown = 0.4f;
     public float attackRadius = 0.6f;
     public LayerMask enemyLayers;
@@ -32,8 +33,7 @@ public class Player : MonoBehaviour
 
     private float lastAttackTime;
     private const bool DEBUG = true;
-
-
+   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -112,10 +112,9 @@ public class Player : MonoBehaviour
         }
 
         // Attacking on input ONLY if the cooldown has passed
-        if (inputActions.Player.Attack.WasPressedThisFrame() && Time.time >= lastAttackTime)
+        if (inputActions.Player.Attack.WasPressedThisFrame())
         {
             PlayerAttack();
-            print("Player attack fired");
         }
     }
 
@@ -169,6 +168,9 @@ public class Player : MonoBehaviour
 
     public void PlayerAttack()
     {
+        if (Time.time - lastAttackTime < attackCooldown)
+            return;
+
         // For cooldowns
         lastAttackTime = Time.time;
 
@@ -182,6 +184,7 @@ public class Player : MonoBehaviour
         attackAnimator.Play("Attack_Separate");
 
         Invoke(nameof(DisableAttackVisual), 0.3f);
+        print("Player attack fired");
     }
 
     // This is painful
