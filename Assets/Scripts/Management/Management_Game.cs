@@ -36,7 +36,7 @@ public class Management_Game : MonoBehaviour
     private void Awake()
     {
         // setup high score
-        HS.Init(this, "Team7");
+        HS.Init(this, "Last Light");
 
         Instance = this;
 
@@ -115,7 +115,8 @@ public class Management_Game : MonoBehaviour
     public void CheckWinCondition()
     {
         print("Checking win condition.");
-        if (Management_Rooms.clearedRooms >= 8) ChangeUIState(UIState.GAME_WIN);
+        // Checking just == rather than <= to allow for endless mode
+        if (Management_Rooms.clearedRooms == 8) ChangeUIState(UIState.GAME_WIN);
     }
 
     // Wrapper methods added for button inspector use 
@@ -157,5 +158,12 @@ public class Management_Game : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+    }
+
+    // Putting the game state back to IN_GAME
+    // Win condition no longer triggers, player keeps going until losing.
+    public void ContinueGame()
+    {
+        ChangeUIState(UIState.IN_GAME);
     }
 }
