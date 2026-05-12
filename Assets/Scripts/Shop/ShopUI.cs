@@ -69,4 +69,14 @@ public class ShopUI : MonoBehaviour
         CloseShop();
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
+
+    public void BuyAttackSpeed()
+    {
+        if (currentPlayer == null) return;
+
+        if (currentPlayer.attackCooldown >= 0) currentPlayer.attackCooldown -= 0.1f;
+        if (DEBUG) print($"Upgrade purchased. New attack cooldown {currentPlayer.attackCooldown}");
+        CloseShop();
+        if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
+    }
 }

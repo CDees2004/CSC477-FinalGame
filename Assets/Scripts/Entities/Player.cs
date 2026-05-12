@@ -188,7 +188,6 @@ public class Player : MonoBehaviour
         attackAnimator.Play("Attack_Separate");
 
         Invoke(nameof(DisableAttackVisual), 0.5f);
-        print("Player attack fired");
     }
 
     // This is painful

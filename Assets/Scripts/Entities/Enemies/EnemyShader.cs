@@ -26,7 +26,6 @@ public class EnemyShader : MonoBehaviour
     {
         // Setting flash to full brightness 
         enemyDamageMaterial.SetFloat("_FlashAmount", 1.0f);
-        print("Shader code called");
 
         // Waiting for half a second 
         yield return new WaitForSeconds(duration);
