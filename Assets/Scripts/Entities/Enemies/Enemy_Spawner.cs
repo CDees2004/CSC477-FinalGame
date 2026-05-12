@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEditor.Toolbars;
 using UnityEngine;
 
 /*
@@ -14,7 +15,10 @@ namespace Assets.Scripts.Entities.Enemies
         private float rotationSpeed = 100.0f;
         private float minSpawnTime = 1.0f;
         private float maxSpawnTime = 3.0f;
+        private float spawnDistance = 1.5f;
+        private float spawningLaunchForce = 5.0f;
 
+        private Coroutine spawningCoroutine;
 
         private Transform player;
 
