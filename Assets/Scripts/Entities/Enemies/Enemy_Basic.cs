@@ -10,7 +10,11 @@ public class Enemy_Basic : Enemy
     // set in inspector
     public float movementSpeed;
     public float minRedirDist;
-    
+
+    // Making an instance of our score for updates 
+    Score score;
+
+
 
     protected override void Awake()
     {
@@ -32,6 +36,10 @@ public class Enemy_Basic : Enemy
         movementSpeed = 0.5f;
         minRedirDist = 1f;
         player = GameObject.FindWithTag("Player").transform;
+
+        enemyShader = GetComponent<EnemyShader>();
+
+        score = FindFirstObjectByType<Score>();
     }
 
     private void Update()
@@ -46,7 +54,7 @@ public class Enemy_Basic : Enemy
 
     private void OnCollisionEnter2D(Collision2D c){
         if (!c.gameObject.CompareTag("Player")){
-            idleDir = Random.onUnitSphere; // <- Might remove 
+            idleDir = Random.insideUnitCircle.normalized; // Dangerous line
         }
         else
         {
@@ -74,5 +82,31 @@ public class Enemy_Basic : Enemy
     public override void DetectPlayer(){
         idle = false;
         movementSpeed = 1f;
+    }
+
+    protected override void Die()
+    {
+        if (parentRoom == null)
+        {
+            Debug.LogError($"{gameObject.name} has no parent room assigned.");
+        }
+        else
+        {
+            if (enemyShader != null)
+                enemyShader.PlayHitFlash();
+
+            parentRoom.OnEnemyDeath();
+
+            if (score != null)
+            {
+                score.UpdateScore(enemyDeathScore);
+            }
+            else
+            {
+                Debug.LogError("Score reference missing!");
+            }
+        }
+
+        Destroy(gameObject);
     }
 }

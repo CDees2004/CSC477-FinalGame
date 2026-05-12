@@ -203,7 +203,8 @@ public class Player : MonoBehaviour
         foreach (Collider2D enemyCollider in hitEnemies)
         {
             // If there is an enemy collider in the overlap, dmg that enemy by player dmg
-            Enemy enemy = enemyCollider.GetComponent<Enemy>();
+            //Enemy enemy = enemyCollider.GetComponent<Enemy>();
+            Enemy enemy = enemyCollider.GetComponentInParent<Enemy>();
             if (enemy != null)
             {
                 enemy.TakeDamage(playerDamage);

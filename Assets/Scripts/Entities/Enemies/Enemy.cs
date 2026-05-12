@@ -9,12 +9,11 @@ public abstract class Enemy : MonoBehaviour
     protected bool idle;
     protected Room parentRoom; // Each enemy must belong to a room
 
-    private EnemyShader enemyShader;
+    protected EnemyShader enemyShader;
 
     private const bool DEBUG = true;
 
-    // Making an instance of our score for updates 
-    Score score;
+
 
     protected virtual void Awake()
     {
@@ -49,8 +48,6 @@ public abstract class Enemy : MonoBehaviour
         {
             if (enemyShader != null) enemyShader.PlayHitFlash();
             parentRoom.OnEnemyDeath();
-            // Updating the player's score upon enemy defeat
-            score.UpdateScore(enemyDeathScore);
         }
 
         Destroy(gameObject);
