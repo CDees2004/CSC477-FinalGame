@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     [Header("Combat")] // Putting a label above these params in the Inspector
     // REMEMBER: inspector values overwrite these values.
     public float attackCooldown = 0.4f;
-    public float attackRadius = 0.6f;
+    public float attackRadius = 5.0f;
     public LayerMask enemyLayers;
     public Transform attackPoint;
     public GameObject attackAnimation;
@@ -177,14 +177,12 @@ public class Player : MonoBehaviour
 
         attackAnimation.SetActive(true);
 
-        Vector2 attackDirection = new Vector2(lastMoveX, lastMoveY).normalized;
-        attackPoint.localPosition = attackDirection * 0.75f;
 
         // Trying this weirdo stuff to get this animation to work
         Animator attackAnimator = attackAnimation.GetComponent<Animator>();
         attackAnimator.Play("Attack_Separate");
 
-        Invoke(nameof(DisableAttackVisual), 0.3f);
+        Invoke(nameof(DisableAttackVisual), 0.5f);
         print("Player attack fired");
     }
 
@@ -198,7 +196,7 @@ public class Player : MonoBehaviour
     public void DealDamage()
     {
         // Using list to account for hitting multiple enemies at once
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayers);
 
         foreach (Collider2D enemyCollider in hitEnemies)
         {
@@ -241,9 +239,7 @@ public class Player : MonoBehaviour
     // Debugging attack 
     private void OnDrawGizmosSelected()
     {
-        if (attackPoint == null) return;
-
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 }
