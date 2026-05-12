@@ -30,15 +30,21 @@ public class Room : MonoBehaviour
     public RoomType roomType;
     public bool roomCleared = false;
     public List<GameObject> spawnedEnemies = new();
+    public int maxEnemies = 20;
 
     // Essentially making a tuple via the serialized class
     public SpawnPointData[] spawnPoints;
 
     // For enabling/disabling the room particles 
     public GameObject particles;
-    private int enemiesAlive;
+    public int enemiesAlive;
     private const bool DEBUG = true;
 
+    private void Awake()
+    {
+        // Resetting 
+        enemiesAlive = 0;
+    }
 
     private void Start()
     {
@@ -166,6 +172,7 @@ public class Room : MonoBehaviour
     // ------ Handling Enemy spawning -----
     IEnumerator SpawnEnemiesRoutine()
     {
+        if (enemiesAlive >= maxEnemies) yield break;
         foreach (var point in spawnPoints)
         {
             if (point.spawnPoint == null || point.enemyPrefab == null) continue;

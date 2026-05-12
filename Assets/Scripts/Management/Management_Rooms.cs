@@ -22,6 +22,10 @@ public class Management_Rooms : MonoBehaviour
 
     void Awake()
     {
+        // Resetting 
+        clearedRooms = 0;
+        clearedEnemyRooms = 0;
+
         if (Instance == null)
         {
             Instance = this;
