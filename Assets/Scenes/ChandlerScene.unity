@@ -4432,7 +4432,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 714418505}
     m_Modifications:
     - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: roomID
@@ -4448,15 +4448,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4861459205546284080, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_Name
-      value: EnemyRoom1 - Room 3
+      value: EnemyRoom
       objectReference: {fileID: 0}
     - target: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.21879625
+      value: 5.1036463
       objectReference: {fileID: 0}
     - target: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.286421
+      value: -7.1402006
       objectReference: {fileID: 0}
     - target: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4493,7 +4493,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5590953840918238950, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 870456144}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
 --- !u!1 &301873538
@@ -14532,6 +14535,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!4 &651337425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+  m_PrefabInstance: {fileID: 295275681}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &651978739
 GameObject:
   m_ObjectHideFlags: 0
@@ -15353,6 +15361,39 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &714418504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714418505}
+  m_Layer: 0
+  m_Name: -- Enemy Rooms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &714418505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714418504}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.88485, y: -7.14622, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 651337425}
+  - {fileID: 168598219}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714873094
 GameObject:
   m_ObjectHideFlags: 0
@@ -32081,7 +32122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870456144}
   m_Layer: 0
-  m_Name: EnemyRoom2
+  m_Name: EnemyRoom2 Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32095,14 +32136,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870456143}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -14.72, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6202015, y: -0.1682628, z: 0}
+  m_LocalScale: {x: 0.05539246, y: 0.09702898, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 276800789}
   - {fileID: 2008078023}
-  m_Father: {fileID: 1275048036}
+  m_Father: {fileID: 651337425}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870822005
 GameObject:
@@ -51519,7 +51560,6 @@ Transform:
   m_Children:
   - {fileID: 1304202169}
   - {fileID: 1371882608}
-  - {fileID: 870456144}
   - {fileID: 1596000871}
   - {fileID: 1667615403}
   - {fileID: 1146606586}
@@ -62580,7 +62620,6 @@ Transform:
   m_Children:
   - {fileID: 2070722619}
   - {fileID: 2124677681}
-  - {fileID: 168598219}
   - {fileID: 903625454}
   - {fileID: 1957676781}
   m_Father: {fileID: 0}
@@ -75913,7 +75952,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1844651503}
+    m_TransformParent: {fileID: 714418505}
     m_Modifications:
     - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: particles
@@ -75925,11 +75964,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.31
+      value: -16.42515
       objectReference: {fileID: 0}
     - target: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.11
+      value: 7.03622
       objectReference: {fileID: 0}
     - target: {fileID: 5457105774054550684, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -75982,4 +76021,4 @@ SceneRoots:
   - {fileID: 2022087301}
   - {fileID: 1762693998}
   - {fileID: 1275048036}
-  - {fileID: 295275681}
+  - {fileID: 714418505}
