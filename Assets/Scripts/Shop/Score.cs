@@ -1,16 +1,24 @@
+using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static int score;
+    public TextMeshProUGUI scoreText;
+
+    private void Start()
     {
-        
+        DisplayScore();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DisplayScore()
     {
-        
+        scoreText.text = score.ToString();
+    }
+
+    public void UpdateScore(int scoreChange)
+    {
+        score += scoreChange;
+        DisplayScore(); // Updating the visual display whenever the score changes
     }
 }

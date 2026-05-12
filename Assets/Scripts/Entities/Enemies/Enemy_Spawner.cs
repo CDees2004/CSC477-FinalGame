@@ -29,8 +29,9 @@ namespace Assets.Scripts.Entities.Enemies
 
             // Overwriting parent class fields for unique stats
             enemyIdentifier = "Projectile";
-            enemyHealth = 150.0f;
+            enemyHealth = 200.0f;
             enemyDamage = 5.0f; // Reduced touch damage, more on ranged
+            enemyDeathScore = 500;
         }
 
         protected override void Start()

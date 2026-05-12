@@ -21,6 +21,7 @@ public class Enemy_Basic : Enemy
         enemyIdentifier = "Basic";
         enemyHealth = 100.0f;
         enemyDamage = 10.0f;
+        enemyDeathScore = 100;
     }
 
     protected override void Start()
