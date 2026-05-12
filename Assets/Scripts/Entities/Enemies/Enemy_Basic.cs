@@ -11,10 +11,6 @@ public class Enemy_Basic : Enemy
     public float movementSpeed;
     public float minRedirDist;
 
-    // Making an instance of our score for updates 
-    Score score;
-
-
 
     protected override void Awake()
     {
@@ -38,8 +34,6 @@ public class Enemy_Basic : Enemy
         player = GameObject.FindWithTag("Player").transform;
 
         enemyShader = GetComponent<EnemyShader>();
-
-        score = FindFirstObjectByType<Score>();
     }
 
     private void Update()
@@ -97,14 +91,7 @@ public class Enemy_Basic : Enemy
 
             parentRoom.OnEnemyDeath();
 
-            if (score != null)
-            {
-                score.UpdateScore(enemyDeathScore);
-            }
-            else
-            {
-                Debug.LogError("Score reference missing!");
-            }
+            Score.Instance.UpdateScore(enemyDeathScore);
         }
 
         Destroy(gameObject);

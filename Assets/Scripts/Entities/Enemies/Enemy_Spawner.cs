@@ -120,5 +120,23 @@ namespace Assets.Scripts.Entities.Enemies
             if (spawningCoroutine != null)
                 StopCoroutine(spawningCoroutine);
         }
+
+        protected override void Die()
+        {
+            if (parentRoom == null)
+            {
+                Debug.LogError($"{gameObject.name} has no parent room assigned.");
+            }
+            else
+            {
+                if (enemyShader != null)
+                    enemyShader.PlayHitFlash();
+
+                parentRoom.OnEnemyDeath();
+
+                Score.Instance.UpdateScore(enemyDeathScore);
+            }
+            Destroy(gameObject);
+        }
     }
 }

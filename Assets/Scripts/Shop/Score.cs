@@ -1,10 +1,19 @@
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class Score : MonoBehaviour
 {
-    public static int score = 0;
+    public static Score Instance;
+
+    public int score = 0;
     public TextMeshProUGUI scoreText;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

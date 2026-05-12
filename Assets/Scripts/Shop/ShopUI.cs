@@ -10,6 +10,7 @@ public class ShopUI : MonoBehaviour
 
     private Player currentPlayer;
     private const bool DEBUG = true;
+    
 
     private void Awake()
     {
@@ -39,13 +40,14 @@ public class ShopUI : MonoBehaviour
     public void BuyIncreaseMaxHealth()
     {
         if (currentPlayer == null) return;
+        if (Score.Instance.score < 500) return;
 
         currentPlayer.SetMaxHealth(currentPlayer.playerActualHealth + 50.0f);
 
         if (DEBUG) print($"Upgrade purchased. New player max health: {currentPlayer.playerMaxHealth}");
 
         CloseShop();
-
+        Score.Instance.UpdateScore(-500);
         // Purchasing from the shop clears the current room
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
@@ -53,29 +55,42 @@ public class ShopUI : MonoBehaviour
     public void BuySpeedUpgrade()
     {
         if (currentPlayer == null) return;
+        if (Score.Instance.score < 1_000) return;
 
         currentPlayer.moveSpeed += 2;
         if (DEBUG) print($"Upgrade purchased. New player speed: {currentPlayer.moveSpeed}");
         CloseShop();
+        Score.Instance.UpdateScore(-1_000);
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
 
     public void BuyDamageUpgrade()
     {
         if (currentPlayer == null) return;
+        if (Score.Instance.score < 750) return;
 
         currentPlayer.playerDamage += 50.0f;
         if (DEBUG) print($"Upgrade purchased. New player damage: {currentPlayer.playerDamage}");
+
         CloseShop();
+        Score.Instance.UpdateScore(-750);
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
 
     public void BuyAttackSpeed()
     {
         if (currentPlayer == null) return;
+        if (Score.Instance.score < 1_500) return;
 
-        if (currentPlayer.attackCooldown >= 0) currentPlayer.attackCooldown -= 0.1f;
+        if (currentPlayer.attackCooldown >= 0) currentPlayer.attackCooldown -= 0.2f;
         if (DEBUG) print($"Upgrade purchased. New attack cooldown {currentPlayer.attackCooldown}");
+        CloseShop();
+        Score.Instance.UpdateScore(-1_500);
+        if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
+    }
+
+    public void LeaveShop()
+    {
         CloseShop();
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
