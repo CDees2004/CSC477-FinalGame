@@ -33,12 +33,17 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TakeDamage(float incomingDamage)
     {
+
+        print($"HIT REGISTERED on {gameObject.name} before HP change");
         enemyHealth -= incomingDamage;
 
         if (enemyShader != null) enemyShader.PlayHitFlash();
         
         if (enemyHealth <= 0) Die();
         if (DEBUG) print($"Enemy took {incomingDamage} damage.");
+
+        print($"HP NOW: {enemyHealth}");
+
     }
 
     protected virtual void Die()

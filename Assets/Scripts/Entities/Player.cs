@@ -34,14 +34,19 @@ public class Player : MonoBehaviour
 
     private float lastAttackTime;
     private const bool DEBUG = true;
-   
-    void Start()
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+
+    }
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
         // Set up Input Actions
-        inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
 
         // Auto-assign playerSprites if not set
@@ -195,20 +200,24 @@ public class Player : MonoBehaviour
     // Need to call this WITHIN the animation
     public void DealDamage()
     {
-        // Using list to account for hitting multiple enemies at once
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayers);
+        Vector2 center = transform.position;
+
+        // using the transform position rather than the attackPoint position
+        Collider2D[] hitEnemies =
+            Physics2D.OverlapCircleAll(center, attackRadius, enemyLayers);
 
         foreach (Collider2D enemyCollider in hitEnemies)
         {
-            // If there is an enemy collider in the overlap, dmg that enemy by player dmg
-            //Enemy enemy = enemyCollider.GetComponent<Enemy>();
+            // I don't know why removing this breaks stuff. It really shouldn't
+            if (enemyCollider.isTrigger)
+                continue;
+
             Enemy enemy = enemyCollider.GetComponentInParent<Enemy>();
+
             if (enemy != null)
             {
                 enemy.TakeDamage(playerDamage);
-                if (DEBUG) print($"Hit connected. Enemy took {playerDamage} damage.");
-                // Quick pausing the game for a bit of Art of Screenshake sauce 
-                StartCoroutine(QuickGamePause(0.1f));
+                Debug.Log($"DAMAGED: {enemy.name}");
             }
         }
     }
@@ -237,7 +246,7 @@ public class Player : MonoBehaviour
     }
 
     // Debugging attack 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
