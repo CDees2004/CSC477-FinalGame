@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
     private PlayerInputActions inputActions;
 
+    private EnemyShader playerHitShader;
+
     public Transform playerSprites; // Assign this in Inspector OR find it automatically
 
     private float lastMoveX = 1f; // Default to facing right
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
     public GameObject attackAnimation;
 
     private float lastAttackTime;
-    private const bool DEBUG = true;
+    private const bool DEBUG = false;
 
     private void Awake()
     {
@@ -68,6 +70,8 @@ public class Player : MonoBehaviour
 
         // Since attack anim is a child of Player, turn off until ready
         attackAnimation.SetActive(false);
+
+        playerHitShader = GetComponent<EnemyShader>();
     }
 
     void Update()
@@ -163,6 +167,7 @@ public class Player : MonoBehaviour
 
         if (DEBUG) print($"Health after damage {playerActualHealth}");
 
+        if (playerHitShader != null) playerHitShader.PlayHitFlash();
         UpdateHealthUI();
         
         // Trigger lose condition
@@ -216,6 +221,8 @@ public class Player : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(playerDamage);
+                // Quick visual pause
+                StartCoroutine(QuickGamePause(0.1f));
                 Debug.Log($"DAMAGED: {enemy.name}");
             }
         }
