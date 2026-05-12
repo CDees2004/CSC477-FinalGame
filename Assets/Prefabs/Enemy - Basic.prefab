@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 8758635575895808135}
   - component: {fileID: 5528840596197839177}
   - component: {fileID: 32220636429352571}
+  - component: {fileID: 5885817287284055754}
   m_Layer: 8
   m_Name: Enemy - Basic
   m_TagString: Enemy
@@ -232,6 +233,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5885817287284055754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243546738538100660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53a56bd0c7be0d4d858d61cfe4fa2b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShader
 --- !u!1 &2654170890801270516
 GameObject:
   m_ObjectHideFlags: 0

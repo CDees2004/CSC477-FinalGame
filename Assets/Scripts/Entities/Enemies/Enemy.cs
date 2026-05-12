@@ -8,6 +8,8 @@ public abstract class Enemy : MonoBehaviour
     protected bool idle;
     protected Room parentRoom; // Each enemy must belong to a room
 
+    private EnemyShader enemyShader;
+
     private const bool DEBUG = true;
 
     protected virtual void Awake()
@@ -21,12 +23,17 @@ public abstract class Enemy : MonoBehaviour
         else
             parentRoom.AddEnemy();
 
+        enemyShader = GetComponent<EnemyShader>();
+
         idle = true;
     }
 
     public virtual void TakeDamage(float incomingDamage)
     {
         enemyHealth -= incomingDamage;
+
+        if (enemyShader != null) enemyShader.PlayHitFlash();
+        
         if (enemyHealth <= 0) Die();
         if (DEBUG) print($"Enemy took {incomingDamage} damage.");
     }
@@ -34,8 +41,11 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Die()
     {
         if (parentRoom == null) Debug.LogError($"{gameObject.name} has no parent room assigned.");
-        else 
+        else
+        {
+            if (enemyShader != null) enemyShader.PlayHitFlash();
             parentRoom.OnEnemyDeath();
+        }
 
         Destroy(gameObject);
     }
