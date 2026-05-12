@@ -1365,6 +1365,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!4 &84654991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5988229932993505560, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+  m_PrefabInstance: {fileID: 295275681}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &86307013
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,6 +4451,22 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[0].spawnPoint
+      value: 
+      objectReference: {fileID: 84654991}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[1].spawnPoint
+      value: 
+      objectReference: {fileID: 84654991}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[0].enemyPrefab
+      value: 
+      objectReference: {fileID: 2243546738538100660, guid: 0487b9fc97e5dde4d9d3d6791a8e69f4, type: 3}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 2243546738538100660, guid: 0487b9fc97e5dde4d9d3d6791a8e69f4, type: 3}
     - target: {fileID: 4861459205546284080, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_Name
       value: EnemyRoom
@@ -32601,12 +32622,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 4
   roomAudio: {fileID: 8300000, guid: 2f3026e7ad2244b49b858600d86d4be4, type: 3}
-  enemyPrefab: {fileID: 0}
-  spawnPoints: []
   playerSpawnPoint: {fileID: 566080760}
   roomType: 2
   roomCleared: 0
   spawnedEnemies: []
+  spawnPoints: []
   particles: {fileID: 1596000870}
 --- !u!1 &905100770
 GameObject:
@@ -56168,6 +56188,11 @@ Transform:
   - {fileID: 872745047}
   m_Father: {fileID: 1275048036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1668622701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6635385597891602369, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+  m_PrefabInstance: {fileID: 5336104010559438962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1669547054
 GameObject:
   m_ObjectHideFlags: 0
@@ -62844,6 +62869,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850752509}
   m_CullTransparentMesh: 1
+--- !u!4 &1864681023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5988229932993505560, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+  m_PrefabInstance: {fileID: 5336104010559438962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865133626
 GameObject:
   m_ObjectHideFlags: 0
@@ -69396,12 +69426,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 5
   roomAudio: {fileID: 8300000, guid: 981bd05c29a40d14b817b84aa21c7051, type: 3}
-  enemyPrefab: {fileID: 0}
-  spawnPoints: []
   playerSpawnPoint: {fileID: 0}
   roomType: 1
   roomCleared: 0
   spawnedEnemies: []
+  spawnPoints: []
   particles: {fileID: 1667615402}
 --- !u!1 &1964645116
 GameObject:
@@ -75524,12 +75553,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 1
   roomAudio: {fileID: 8300000, guid: 3ce1facb2741f904fa6055645a7bbeec, type: 3}
-  enemyPrefab: {fileID: 0}
-  spawnPoints: []
   playerSpawnPoint: {fileID: 0}
   roomType: 3
   roomCleared: 0
   spawnedEnemies: []
+  spawnPoints: []
   particles: {fileID: 1304202168}
 --- !u!1 &2094082438
 GameObject:
@@ -75865,12 +75893,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomID: 2
   roomAudio: {fileID: 8300000, guid: 438032f5ab49c4a7d8473bd52039ee16, type: 3}
-  enemyPrefab: {fileID: 0}
-  spawnPoints: []
   playerSpawnPoint: {fileID: 0}
   roomType: 3
   roomCleared: 0
   spawnedEnemies: []
+  spawnPoints: []
   particles: {fileID: 1146606585}
 --- !u!1 &2135540013
 GameObject:
@@ -76103,6 +76130,22 @@ PrefabInstance:
       propertyPath: particles
       value: 
       objectReference: {fileID: 1371882607}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[0].spawnPoint
+      value: 
+      objectReference: {fileID: 1864681023}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[1].spawnPoint
+      value: 
+      objectReference: {fileID: 1668622701}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[0].enemyPrefab
+      value: 
+      objectReference: {fileID: 2243546738538100660, guid: 883f6fda7c1b6094293728769879c432, type: 3}
+    - target: {fileID: 2717073759730597538, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
+      propertyPath: spawnPoints.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 2243546738538100660, guid: 0487b9fc97e5dde4d9d3d6791a8e69f4, type: 3}
     - target: {fileID: 4861459205546284080, guid: 3c4f755f25aa8e94db0f37e2ae0ef9ed, type: 3}
       propertyPath: m_Name
       value: EnemyRoom1 - Room 3

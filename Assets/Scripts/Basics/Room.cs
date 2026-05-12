@@ -10,17 +10,29 @@ public enum RoomType
     STARTING,
 }
 
+// Setting up system to allow each spawn point to
+// have an associated prefab
+
+// Serializable so all fields are in Inspector
+[System.Serializable]
+public class SpawnPointData
+{
+    public Transform spawnPoint;
+    public GameObject enemyPrefab;
+}
+
 public class Room : MonoBehaviour
 {
     // Assign in Inspector
     public int roomID;
     public AudioClip roomAudio;
-    public GameObject enemyPrefab;
-    public Transform[] spawnPoints; // Will grab obj's position.
     public Transform playerSpawnPoint;
     public RoomType roomType;
     public bool roomCleared = false;
     public List<GameObject> spawnedEnemies = new();
+
+    // Essentially making a tuple via the serialized class
+    public SpawnPointData[] spawnPoints;
 
     // For enabling/disabling the room particles 
     public GameObject particles;
@@ -156,17 +168,19 @@ public class Room : MonoBehaviour
     {
         foreach (var point in spawnPoints)
         {
+            if (point.spawnPoint == null || point.enemyPrefab == null) continue;
+
             // Want to scale spawning off round
             for (int i = 0; i <= Management_Rooms.clearedEnemyRooms; i++)
             {
-                SpawnEnemy(point.position);
+                SpawnEnemy(point.enemyPrefab, point.spawnPoint.position);
             }
             
             yield return new WaitForSeconds(0.2f);
         }
     }
 
-    private void SpawnEnemy(Vector2 spawnPosition)
+    private void SpawnEnemy(GameObject enemyPrefab, Vector2 spawnPosition)
     {
         // Enemy objs call AddEnemy upon Start() on their own.
         var enemyObj = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
