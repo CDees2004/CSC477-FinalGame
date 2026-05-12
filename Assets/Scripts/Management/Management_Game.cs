@@ -104,10 +104,14 @@ public class Management_Game : MonoBehaviour
 
             case UIState.GAME_OVER:
                 SetUIElement("GameOverScreen");
+                // Using the actual high score implementation
+                HS.SubmitHighScore(this,"test name", Score.Instance.score);
                 break;
 
             case UIState.GAME_WIN:
                 SetUIElement("GameWinScreen");
+                // Using the actual high score implementation
+                HS.SubmitHighScore(this, "test name", Score.Instance.score);
                 break;
         }
     }
