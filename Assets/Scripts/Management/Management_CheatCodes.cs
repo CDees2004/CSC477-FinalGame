@@ -35,7 +35,7 @@ public class Management_CheatCodes : MonoBehaviour
         // Win
         if (inputActions.UI.CheatCode_GameWin.WasPressedThisFrame())
         {
-            Management_Rooms.clearedRooms = 8;
+            Management_Rooms.clearedEnemyRooms = 8;
             Management_Game.Instance.CheckWinCondition();
         }
 
