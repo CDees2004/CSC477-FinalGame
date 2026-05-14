@@ -11,6 +11,8 @@ public enum SoundType
     MENU_CLICK,
     SHOP_YES,
     SHOP_NO,
+    ROOM_CLEAR,
+    HEAL,
 }
 
 
@@ -31,7 +33,7 @@ public class SoundCollection
             if (clips[i] == null)
             {
 
-                Debug.LogError("dynamically loaded clip is null");
+                Debug.LogError($"dynamically loaded clip is null {clipNames[i]}");
             }
         }
         lastClipIndex = -1;
@@ -83,12 +85,14 @@ public class SoundManager : MonoBehaviour
         {
             // Must match the file path WITHIN the Resources folder
             {SoundType.SWING, new SoundCollection("Swing") },
-            {SoundType.ENEMY_HURT, new SoundCollection("enemyHurt") },
-            {SoundType.PLAYER_HURT, new SoundCollection("playerHurt") },
+            {SoundType.ENEMY_HURT, new SoundCollection("enemyHurt1", "enemyHurt2", "enemyHurt3") },
+            {SoundType.PLAYER_HURT, new SoundCollection("playerHurt", "playerHurt2", "playerHurt3", "playerHurt4") },
             {SoundType.SPAWN_ENEMY, new SoundCollection("spawnEnemy1", "spawnEnemy2", "spawnEnemy3") },
             {SoundType.MENU_CLICK, new SoundCollection("menuClick") },
             {SoundType.SHOP_YES, new SoundCollection("shopYES") },
             {SoundType.SHOP_NO, new SoundCollection("shopNO") },
+            {SoundType.ROOM_CLEAR, new SoundCollection("roomClear", "roomClear2", "roomClear3") },
+            {SoundType.HEAL, new SoundCollection("roomHeal", "roomHeal2") },
         };
     }
 
@@ -102,7 +106,6 @@ public class SoundManager : MonoBehaviour
             extAudioSource.pitch = pitch >= 0 ? pitch : Random.Range(0.75f, 1.25f);
             extAudioSource.clip = Instance.sounds[type].GetRandomClip();
             // debug 
-            print("played sound");
             extAudioSource.Play();
 
         }

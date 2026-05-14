@@ -149,8 +149,9 @@ public class Management_Game : MonoBehaviour
             namePromptText.SetActive(true);
             return;
         }
-            
+           
         ChangeUIState(UIState.IN_GAME);
+        SoundManager.Play(SoundType.MENU_CLICK);
     }
 
     public void GameOver()
@@ -162,6 +163,7 @@ public class Management_Game : MonoBehaviour
     // in the Button's inspector widget 
     public void QuitGame()
     {
+        SoundManager.Play(SoundType.MENU_CLICK);
 #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
 #else
@@ -172,6 +174,7 @@ public class Management_Game : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SoundManager.Play(SoundType.MENU_CLICK);
     }
 
     public void OpenSettings()
@@ -183,6 +186,7 @@ public class Management_Game : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+        SoundManager.Play(SoundType.MENU_CLICK);
     }
 
     // Putting the game state back to IN_GAME
@@ -190,6 +194,7 @@ public class Management_Game : MonoBehaviour
     public void ContinueGame()
     {
         ChangeUIState(UIState.IN_GAME);
+        SoundManager.Play(SoundType.MENU_CLICK);
     }
 
     // For getting the players name from the entry field on the main menu

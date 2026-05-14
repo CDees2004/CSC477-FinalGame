@@ -165,7 +165,10 @@ public class Player : MonoBehaviour
 
         if (playerHitShader != null) playerHitShader.PlayHitFlash();
         UpdateHealthUI();
-        
+        SoundManager.Play(SoundType.PLAYER_HURT);
+        // Quick visual pause
+        StartCoroutine(QuickGamePause(0.1f));
+
         // Trigger lose condition
         if (playerActualHealth <= 0)
         {

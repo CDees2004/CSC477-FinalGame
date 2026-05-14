@@ -114,6 +114,7 @@ public class Room : MonoBehaviour
 
         // Indicating you can now go through the doors
         particles.SetActive(true);
+        SoundManager.Play(SoundType.ROOM_CLEAR);
         Management_Rooms.clearedRooms++;
         if (this.roomType == RoomType.ENEMY) Management_Rooms.clearedEnemyRooms++;
 

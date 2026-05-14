@@ -40,12 +40,16 @@ public class ShopUI : MonoBehaviour
     public void BuyIncreaseMaxHealth()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 500) return;
+        if (Score.Instance.score < 500)
+        {
+            SoundManager.Play(SoundType.SHOP_NO);
+            return;
+        }
 
         currentPlayer.SetMaxHealth(currentPlayer.playerActualHealth + 50.0f);
 
         if (DEBUG) print($"Upgrade purchased. New player max health: {currentPlayer.playerMaxHealth}");
-
+        SoundManager.Play(SoundType.SHOP_YES);
         CloseShop();
         Score.Instance.UpdateScore(-500);
         // Purchasing from the shop clears the current room
@@ -55,10 +59,15 @@ public class ShopUI : MonoBehaviour
     public void BuySpeedUpgrade()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 1_000) return;
+        if (Score.Instance.score < 1_000)
+        {
+            SoundManager.Play(SoundType.SHOP_NO);
+            return;
+        }
 
         currentPlayer.moveSpeed += 2;
         if (DEBUG) print($"Upgrade purchased. New player speed: {currentPlayer.moveSpeed}");
+        SoundManager.Play(SoundType.SHOP_YES);
         CloseShop();
         Score.Instance.UpdateScore(-1_000);
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
@@ -67,11 +76,15 @@ public class ShopUI : MonoBehaviour
     public void BuyDamageUpgrade()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 750) return;
+        if (Score.Instance.score < 750)
+        {
+            SoundManager.Play(SoundType.SHOP_NO);
+            return;
+        }
 
         currentPlayer.playerDamage += 50.0f;
         if (DEBUG) print($"Upgrade purchased. New player damage: {currentPlayer.playerDamage}");
-
+        SoundManager.Play(SoundType.SHOP_YES);
         CloseShop();
         Score.Instance.UpdateScore(-750);
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
@@ -80,10 +93,15 @@ public class ShopUI : MonoBehaviour
     public void BuyAttackSpeed()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 1_500) return;
+        if (Score.Instance.score < 1_500)
+        {
+            SoundManager.Play(SoundType.SHOP_NO);
+            return;
+        }
 
         if (currentPlayer.attackCooldown >= 0) currentPlayer.attackCooldown -= 0.2f;
         if (DEBUG) print($"Upgrade purchased. New attack cooldown {currentPlayer.attackCooldown}");
+        SoundManager.Play(SoundType.SHOP_YES);
         CloseShop();
         Score.Instance.UpdateScore(-1_500);
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
@@ -91,6 +109,7 @@ public class ShopUI : MonoBehaviour
 
     public void LeaveShop()
     {
+        SoundManager.Play(SoundType.SHOP_YES);
         CloseShop();
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }

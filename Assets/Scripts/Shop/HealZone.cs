@@ -51,6 +51,7 @@ namespace Assets.Scripts.Shop
             if (inputActions.Player.Interact.WasPressedThisFrame())
             {
                 player.HealPlayer(50.0f);
+                SoundManager.Play(SoundType.HEAL);
                 interactionPopup.SetActive(false);
                 // Clearing the room after healing 
                 if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();

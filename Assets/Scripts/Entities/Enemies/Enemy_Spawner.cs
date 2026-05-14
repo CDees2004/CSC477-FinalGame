@@ -75,6 +75,7 @@ namespace Assets.Scripts.Entities.Enemies
                 return;
 
             GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+            SoundManager.Play(SoundType.SPAWN_ENEMY);
 
             // Ensuring the spawned enemies have their parent room assigned
             Enemy enemyScript = enemy.GetComponent<Enemy>();
