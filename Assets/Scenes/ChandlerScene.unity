@@ -4112,7 +4112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.09, y: -0.35, z: 0}
-  m_LocalScale: {x: 3.1336923, y: 3.1336923, z: 3.1336923}
+  m_LocalScale: {x: 4.213876, y: 4.213876, z: 4.213876}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1359212047}
@@ -41308,7 +41308,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: -0.01, z: -0.1567233}
-  m_LocalScale: {x: 3.8406532, y: 3.8406532, z: 3.8406532}
+  m_LocalScale: {x: 4.9267898, y: 4.9267898, z: 4.9267898}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1359212047}
@@ -43705,12 +43705,13 @@ MonoBehaviour:
   healthSlider: {fileID: 1213377839}
   playerSprites: {fileID: 0}
   attackCooldown: 0.8
-  attackRadius: 2
+  attackRadius: 2.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
   attackPoint: {fileID: 1157228365}
   attackAnimation: {fileID: 280583904}
+  knockbackRecoverySpeed: 8
 --- !u!50 &1359212049
 Rigidbody2D:
   serializedVersion: 5

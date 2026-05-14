@@ -100,7 +100,12 @@ namespace Assets.Scripts.Entities.Enemies
             {
                 Player player = collision.gameObject.GetComponent<Player>();
                 if (player != null)
-                    player.TakeDamage(enemyDamage);
+                {
+                    Vector2 hitDirection = (player.transform.position - transform.position).normalized;
+
+                    player.TakeDamage(enemyDamage, hitDirection, 12.0f);
+                }
+                    
             }
         }
 
@@ -111,7 +116,9 @@ namespace Assets.Scripts.Entities.Enemies
                 Player player = collision.gameObject.GetComponent<Player>();
                 if (player != null)
                 {
-                    player.TakeDamage(enemyDamage * Time.deltaTime);
+                    Vector2 hitDirection = (player.transform.position - transform.position).normalized;
+
+                    player.TakeDamage(enemyDamage, hitDirection, 12.0f);
                 }
             }
         }

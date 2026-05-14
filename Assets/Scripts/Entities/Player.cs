@@ -36,6 +36,12 @@ public class Player : MonoBehaviour
 
     private float lastAttackTime;
 
+    [Header("Knockback")]
+    [SerializeField] private float knockbackRecoverySpeed = 8.0f;
+
+    private Vector2 knockbackVelocity;
+    private bool isInvincible;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -129,7 +135,16 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = movement * moveSpeed;
+        Vector2 moveVelocity = movement * moveSpeed;
+
+        rb.linearVelocity = moveVelocity + knockbackVelocity;
+
+        // Smoothly reduce knockback over time
+        knockbackVelocity = Vector2.Lerp(
+            knockbackVelocity,
+            Vector2.zero,
+            knockbackRecoverySpeed * Time.fixedDeltaTime
+        );
     }
 
     public void SetMovementEnabled(bool enabled)
@@ -157,17 +172,26 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
     }
 
-    public void TakeDamage(float incomingDamage)
+    public void TakeDamage(float incomingDamage, Vector2 hitDirection, float knockbackForce)
     {
+        if (isInvincible) return;
+
         playerActualHealth -= incomingDamage;
         playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
 
+        // Applying knockback
+        knockbackVelocity = hitDirection.normalized * knockbackForce;
 
         if (playerHitShader != null) playerHitShader.PlayHitFlash();
+
         UpdateHealthUI();
+
         SoundManager.Play(SoundType.PLAYER_HURT);
-        // Quick visual pause
+
+        // Quick visual pause and knockback
         StartCoroutine(QuickGamePause(0.1f));
+        StartCoroutine(InvincibilityFrames(0.4f));
+
 
         // Trigger lose condition
         if (playerActualHealth <= 0)
@@ -219,7 +243,10 @@ public class Player : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(playerDamage);
+                Vector2 hitDirection = (enemy.transform.position - transform.position).normalized;
+
+                enemy.TakeDamage(playerDamage, hitDirection, 12.0f);
+
                 // Quick visual pause
                 StartCoroutine(QuickGamePause(0.1f));
                 Debug.Log($"DAMAGED: {enemy.name}");
@@ -232,6 +259,15 @@ public class Player : MonoBehaviour
         Time.timeScale = 0.0f;
         yield return new WaitForSecondsRealtime(pauseDuration);
         Time.timeScale = 1.0f;
+    }
+
+    private IEnumerator InvincibilityFrames(float invincibilityDuration)
+    {
+        isInvincible = true;
+
+        yield return new WaitForSeconds(invincibilityDuration);
+
+        isInvincible = false;
     }
 
     public void SetMaxHealth(float newMaxHealth)

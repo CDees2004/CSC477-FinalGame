@@ -3,13 +3,15 @@ using Random = UnityEngine.Random;
 
 public class Enemy_Basic : Enemy
 {
-    // set in script
-    private Vector3 idleDir;
-    private Transform player; 
 
     // set in inspector
     public float movementSpeed;
     public float minRedirDist;
+
+
+    // set in script
+    private Vector2 idleDir;
+    private Transform player;
 
 
     protected override void Awake()
@@ -26,11 +28,16 @@ public class Enemy_Basic : Enemy
 
     protected override void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         // Gets the parent room and adds the Enemy to it
         base.Start();
-        idleDir = Random.onUnitSphere;
+
+        idleDir = Random.insideUnitCircle.normalized;
+
         movementSpeed = 0.5f;
         minRedirDist = 1f;
+
         player = GameObject.FindWithTag("Player").transform;
 
         enemyShader = GetComponent<EnemyShader>();
@@ -46,6 +53,22 @@ public class Enemy_Basic : Enemy
         }
     }
 
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (idle)
+        {
+            rb.linearVelocity = idleDir * movementSpeed + knockbackVelocity;
+        }
+        else
+        {
+            Vector2 dir = (player.position - transform.position).normalized;
+
+            rb.linearVelocity = dir * movementSpeed + knockbackVelocity;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D c){
         if (!c.gameObject.CompareTag("Player")){
             idleDir = Random.insideUnitCircle.normalized; // Dangerous line
@@ -55,23 +78,14 @@ public class Enemy_Basic : Enemy
             Player player = c.gameObject.GetComponent<Player>();
             if (player != null)
             {
-                player.TakeDamage(enemyDamage);
+                Vector2 hitDirection = (player.transform.position - transform.position).normalized;
+
+                player.TakeDamage(enemyDamage, hitDirection, 12.0f);
             }
         }
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            Player player = collider.gameObject.GetComponent<Player>();
-            if (player != null)
-            {
-                player.TakeDamage(enemyDamage * Time.deltaTime);
-            }
-        }
-    }
 
     public override void DetectPlayer(){
         idle = false;

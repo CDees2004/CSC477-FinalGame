@@ -70,7 +70,7 @@ public class Management_CheatCodes : MonoBehaviour
         {
             if (player != null)
             {
-                player.TakeDamage(20.0f);
+                //player.TakeDamage(20.0f);
             }
         }
 

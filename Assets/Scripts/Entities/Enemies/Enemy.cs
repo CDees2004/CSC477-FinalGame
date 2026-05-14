@@ -1,3 +1,4 @@
+using System.Drawing;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
@@ -8,12 +9,13 @@ public abstract class Enemy : MonoBehaviour
     protected int enemyDeathScore;
     protected bool idle;
     protected Room parentRoom; // Each enemy must belong to a room
-
     protected EnemyShader enemyShader;
+    protected Rigidbody2D rb;
+    protected Vector2 knockbackVelocity;
+
+    [SerializeField] protected float knockbackRecoverySpeed = 8.0f;
 
     private const bool DEBUG = true;
-
-
 
     protected virtual void Awake()
     {
@@ -22,6 +24,8 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         if (parentRoom == null) Debug.LogError($"{gameObject.name} has no parent room.");
         else
             parentRoom.AddEnemy();
@@ -31,14 +35,27 @@ public abstract class Enemy : MonoBehaviour
         idle = true;
     }
 
-    public virtual void TakeDamage(float incomingDamage)
+    protected virtual void FixedUpdate()
+    {
+            knockbackVelocity = Vector2.Lerp(
+                knockbackVelocity,
+                Vector2.zero,
+                knockbackRecoverySpeed * Time.fixedDeltaTime
+            );
+    }
+
+    public virtual void TakeDamage(float incomingDamage, Vector2 hitDirection, float knockbackForce)
     {
         enemyHealth -= incomingDamage;
 
+        knockbackVelocity = hitDirection.normalized * knockbackForce;
+
         if (enemyShader != null) enemyShader.PlayHitFlash();
+
         SoundManager.Play(SoundType.ENEMY_HURT);
         
         if (enemyHealth <= 0) Die();
+
         if (DEBUG) print($"Enemy took {incomingDamage} damage.");
     }
 
