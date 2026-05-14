@@ -90,5 +90,10 @@ public class Management_CheatCodes : MonoBehaviour
                // Random.Range(Management_Rooms.Instance.CurrentRoom.spawnedEnemies).KillEnemy();
             }
         }
+
+        if (inputActions.UI.CheatCode_Points.WasPressedThisFrame())
+        {
+            Score.Instance.score = 10_000;
+        }
     }
 }

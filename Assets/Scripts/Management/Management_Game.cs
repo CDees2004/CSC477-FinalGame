@@ -1,5 +1,6 @@
 using HighScore;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,6 +32,10 @@ public class Management_Game : MonoBehaviour
     // Set in Inspector
     public List<GameObject> PanelsUI;
     public GameObject settingsPanel;
+    public TMP_InputField nameInput;
+    public GameObject namePromptText;
+
+    private string playerName;
     private Dictionary<string, GameObject> uiCache = new();
 
     private void Awake()
@@ -55,6 +60,11 @@ public class Management_Game : MonoBehaviour
 
         // Disabling the settings panel at first in case it's left on 
         settingsPanel.SetActive(false);
+    }
+
+    private void Start()
+    {
+        namePromptText.SetActive(false);
     }
 
     // Takes in UI element as arg, set it and only it active
@@ -105,13 +115,14 @@ public class Management_Game : MonoBehaviour
             case UIState.GAME_OVER:
                 SetUIElement("GameOverScreen");
                 // Using the actual high score implementation
-                HS.SubmitHighScore(this,"Player", Score.Instance.score);
+                HS.SubmitHighScore(this,playerName, Score.Instance.score);
+                print($"End score: {Score.Instance.score}");
                 break;
 
             case UIState.GAME_WIN:
                 SetUIElement("GameWinScreen");
                 // Using the actual high score implementation
-                HS.SubmitHighScore(this, "Player", Score.Instance.score);
+                HS.SubmitHighScore(this, playerName, Score.Instance.score);
                 break;
         }
     }
@@ -129,6 +140,16 @@ public class Management_Game : MonoBehaviour
     // --- these methods need to be PUBLIC to show up in the inspector
     public void StartGame()
     {
+        // Need to check if they entered a name on the main menu screen first
+        // If they have not, toggle a text element prompting them to
+        ReadPlayerName();
+
+        if (string.IsNullOrWhiteSpace(playerName))
+        {
+            namePromptText.SetActive(true);
+            return;
+        }
+            
         ChangeUIState(UIState.IN_GAME);
     }
 
@@ -169,5 +190,11 @@ public class Management_Game : MonoBehaviour
     public void ContinueGame()
     {
         ChangeUIState(UIState.IN_GAME);
+    }
+
+    // For getting the players name from the entry field on the main menu
+    public void ReadPlayerName()
+    {
+         playerName = nameInput.text;
     }
 }

@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
     public GameObject attackAnimation;
 
     private float lastAttackTime;
-    private const bool DEBUG = false;
 
     private void Awake()
     {
@@ -155,8 +154,6 @@ public class Player : MonoBehaviour
         playerActualHealth += healAmount;
         playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
 
-        if (DEBUG) print($"Health after healing {playerActualHealth}");
-
         UpdateHealthUI();
     }
 
@@ -165,7 +162,6 @@ public class Player : MonoBehaviour
         playerActualHealth -= incomingDamage;
         playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
 
-        if (DEBUG) print($"Health after damage {playerActualHealth}");
 
         if (playerHitShader != null) playerHitShader.PlayHitFlash();
         UpdateHealthUI();
@@ -232,7 +228,6 @@ public class Player : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         yield return new WaitForSecondsRealtime(pauseDuration);
-        if (DEBUG) print($"paused the game for {pauseDuration}");
         Time.timeScale = 1.0f;
     }
 
@@ -248,7 +243,6 @@ public class Player : MonoBehaviour
     private void UpdateHealthUI()
     {
         if (healthSlider != null) healthSlider.value = playerActualHealth;
-        if (DEBUG) print($"Slider value {healthSlider.value}");
     }
 
     // Debugging attack 

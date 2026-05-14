@@ -632,6 +632,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CheatCode_Points",
+                    "type": "Button",
+                    "id": "82525549-791b-4cb9-a8e7-72293e885989",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1127,6 +1136,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CheatCode_KillEnemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f94b1604-de93-4673-be2d-dc9fae786550",
+                    "path": "<Keyboard>/numpad7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CheatCode_Points",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
