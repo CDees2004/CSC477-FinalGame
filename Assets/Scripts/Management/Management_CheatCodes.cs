@@ -93,7 +93,8 @@ public class Management_CheatCodes : MonoBehaviour
 
         if (inputActions.UI.CheatCode_Points.WasPressedThisFrame())
         {
-            Score.Instance.score = 10_000;
+            // Adding 10,000 points to players score
+            Score.Instance.UpdateScore(10_000);
         }
     }
 }

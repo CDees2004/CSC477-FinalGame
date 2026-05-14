@@ -38,7 +38,7 @@ public class Room : MonoBehaviour
     // For enabling/disabling the room particles 
     public GameObject particles;
     public int enemiesAlive;
-    private const bool DEBUG = true;
+    private const bool DEBUG = false;
 
     private void Awake()
     {
@@ -74,7 +74,7 @@ public class Room : MonoBehaviour
     public void AddEnemy()
     {
         enemiesAlive++;
-        if (DEBUG) print($"Added enemy. Enemies alive: {enemiesAlive}.");
+        //if (DEBUG) print($"Added enemy. Enemies alive: {enemiesAlive}.");
     }
 
     // Called my enemy instances
@@ -82,7 +82,7 @@ public class Room : MonoBehaviour
     {
         enemiesAlive--;
 
-        if (DEBUG) print($"Enemy died. Enemies alive: {enemiesAlive}.");
+        //if (DEBUG) print($"Enemy died. Enemies alive: {enemiesAlive}.");
 
         if (enemiesAlive <= 0 && !roomCleared)
         {
@@ -117,7 +117,7 @@ public class Room : MonoBehaviour
         Management_Rooms.clearedRooms++;
         if (this.roomType == RoomType.ENEMY) Management_Rooms.clearedEnemyRooms++;
 
-        if (DEBUG) print($"Enemy rooms cleared: {Management_Rooms.clearedEnemyRooms}");
+        //if (DEBUG) print($"Enemy rooms cleared: {Management_Rooms.clearedEnemyRooms}");
 
         // Checking the win condition after every room clearance
         Management_Game.Instance.CheckWinCondition();

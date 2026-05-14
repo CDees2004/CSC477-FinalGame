@@ -10,6 +10,7 @@ public class ShopZone : MonoBehaviour
     private void Awake()
     {
         inputActions = new();
+        interactionPopup.SetActive(false); // In case it was left on
     }
 
     private void OnEnable()
