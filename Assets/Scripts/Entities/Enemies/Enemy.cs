@@ -36,6 +36,7 @@ public abstract class Enemy : MonoBehaviour
         enemyHealth -= incomingDamage;
 
         if (enemyShader != null) enemyShader.PlayHitFlash();
+        SoundManager.Play(SoundType.ENEMY_HURT);
         
         if (enemyHealth <= 0) Die();
         if (DEBUG) print($"Enemy took {incomingDamage} damage.");

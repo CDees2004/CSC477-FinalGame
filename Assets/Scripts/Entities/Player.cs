@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
         lastAttackTime = Time.time;
 
         attackAnimation.SetActive(true);
-
+        SoundManager.Play(SoundType.SWING);
 
         // Trying this weirdo stuff to get this animation to work
         Animator attackAnimator = attackAnimation.GetComponent<Animator>();
