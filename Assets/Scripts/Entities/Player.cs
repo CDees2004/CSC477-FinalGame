@@ -193,8 +193,7 @@ public class Player : MonoBehaviour
         StartCoroutine(QuickGamePause(0.1f));
         StartCoroutine(InvincibilityFrames(0.4f));
         // Screenshake 
-        StartCoroutine(Screenshake.Instance.Shake(0.15f, 0.2f));
-
+        Screenshake.Instance.StartShake(0.15f, 0.2f);
 
         // Trigger lose condition
         if (playerActualHealth <= 0)
@@ -253,7 +252,7 @@ public class Player : MonoBehaviour
                 // Quick visual pause
                 StartCoroutine(QuickGamePause(0.1f));
                 // Screenshake 
-                StartCoroutine(Screenshake.Instance.Shake(0.15f, 0.2f));
+                Screenshake.Instance.StartShake(0.15f, 0.2f);
                 Debug.Log($"DAMAGED: {enemy.name}");
             }
         }

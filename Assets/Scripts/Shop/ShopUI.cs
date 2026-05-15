@@ -1,3 +1,4 @@
+using Assets.Scripts.Entities.Enemies;
 using UnityEngine;
 
 // Need to tie this into the overall Management_Game FSM
@@ -10,8 +11,8 @@ public class ShopUI : MonoBehaviour
 
     private Player currentPlayer;
     private const bool DEBUG = true;
-    
 
+    
     private void Awake()
     {
         Instance = this;
@@ -107,6 +108,14 @@ public class ShopUI : MonoBehaviour
         CloseShop();
         Score.Instance.UpdateScore(-1_500);
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
+    }
+
+    // Add free powerups that make the game more difficult 
+    // More difficulty means greater chance for earning points
+    public void BuyMoreEnemies()
+    {
+        if (currentPlayer == null) return;
+        // Increased cleared rooms by 3
     }
 
 
