@@ -14,6 +14,8 @@ public class Enemy_Dash : Enemy
     public float pauseTime = 1.0f;
     public float dashSpeed = 10.0f;
 
+    public ParticleSystem deathParticles;
+
 
     private Vector2 dashDirection;
 
@@ -153,6 +155,7 @@ public class Enemy_Dash : Enemy
 
     protected override void Die()
     {
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         parentRoom.OnEnemyDeath();
 
         Score.Instance.UpdateScore(enemyDeathScore);

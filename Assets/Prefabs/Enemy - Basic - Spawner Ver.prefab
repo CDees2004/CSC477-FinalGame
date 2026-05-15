@@ -269,6 +269,7 @@ MonoBehaviour:
   knockbackRecoverySpeed: 8
   movementSpeed: 0
   minRedirDist: 0
+  deathParticles: {fileID: 1456778371730186285, guid: 16173dbac2b65574f855390ac8d44be1, type: 3}
 --- !u!50 &5528840596197839177
 Rigidbody2D:
   serializedVersion: 5

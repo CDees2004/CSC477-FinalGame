@@ -13,6 +13,8 @@ public class Enemy_Basic : Enemy
     private Vector2 idleDir;
     private Transform player;
 
+    public ParticleSystem deathParticles;
+
 
     protected override void Awake()
     {
@@ -102,7 +104,9 @@ public class Enemy_Basic : Enemy
         {
             if (enemyShader != null)
                 enemyShader.PlayHitFlash();
-
+            
+            // explosion death particles
+            Instantiate(deathParticles, transform.position, Quaternion.identity);
             parentRoom.OnEnemyDeath();
 
             Score.Instance.UpdateScore(enemyDeathScore);

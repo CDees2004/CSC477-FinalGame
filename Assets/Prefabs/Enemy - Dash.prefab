@@ -247,6 +247,7 @@ MonoBehaviour:
   knockbackRecoverySpeed: 8
   pauseTime: 2
   dashSpeed: 10
+  deathParticles: {fileID: 1456778371730186285, guid: 739ba22aa9127654faa55508a8e7fcae, type: 3}
 --- !u!1 &2654170890801270516
 GameObject:
   m_ObjectHideFlags: 0

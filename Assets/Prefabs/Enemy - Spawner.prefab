@@ -141,6 +141,7 @@ MonoBehaviour:
   minSpawnTime: 1
   maxSpawnTime: 3
   rotationSpeed: 100
+  deathParticles: {fileID: 1456778371730186285, guid: 0912139e9e2d1854da5a6ade34533d44, type: 3}
 --- !u!1 &2654170890801270516
 GameObject:
   m_ObjectHideFlags: 0

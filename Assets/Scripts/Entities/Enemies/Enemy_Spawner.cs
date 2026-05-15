@@ -20,6 +20,8 @@ namespace Assets.Scripts.Entities.Enemies
 
         private Coroutine spawningCoroutine;
 
+        public ParticleSystem deathParticles;
+
         protected override void Awake()
         {
             base.Awake();
@@ -137,6 +139,7 @@ namespace Assets.Scripts.Entities.Enemies
             }
             else
             {
+                Instantiate(deathParticles, transform.position, Quaternion.identity);
                 if (enemyShader != null)
                     enemyShader.PlayHitFlash();
 
