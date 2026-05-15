@@ -116,6 +116,11 @@ public class ShopUI : MonoBehaviour
     {
         if (currentPlayer == null) return;
         // Increased cleared rooms by 3
+        Management_Rooms.clearedEnemyRooms += 3;
+        if (DEBUG) print($"Upgrade purchased. New enemies per spawner {Management_Rooms.clearedEnemyRooms}");
+        SoundManager.Play(SoundType.SHOP_YES);
+        CloseShop();
+        if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
 
 

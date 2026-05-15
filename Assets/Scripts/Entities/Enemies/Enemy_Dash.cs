@@ -21,6 +21,8 @@ public class Enemy_Dash : Enemy
 
     private float stateTimer;
 
+    protected Transform player;
+
     protected override void Awake()
     {
         // Getting components from parent class to properly assign roomID
@@ -29,7 +31,7 @@ public class Enemy_Dash : Enemy
         // Unique components
         enemyIdentifier = "Dasher";
         enemyHealth = 150.0f;
-        enemyDamage = 15.0f;
+        enemyDamage = 7.0f;
         enemyDeathScore = 250;
     }
 
@@ -38,6 +40,8 @@ public class Enemy_Dash : Enemy
         base.Start();
 
         rb = GetComponent<Rigidbody2D>();
+
+        player = GameObject.FindWithTag("Player").transform;
 
         // Waiting as initial state
         StartWaiting();
@@ -92,7 +96,7 @@ public class Enemy_Dash : Enemy
     {
         currentState = DashState.DASHING;
 
-        dashDirection = GetRandomCardinalDirection();
+        dashDirection = GetPlayerDirection();
     }
 
     // Getting a randomized direction that the enemy will dash into
@@ -114,6 +118,13 @@ public class Enemy_Dash : Enemy
             default:
                 return Vector2.right;
         }
+    }
+
+    private Vector2 GetPlayerDirection()
+    {
+        Vector2 toPlayer = (player.position - transform.position).normalized;
+
+        return toPlayer; // Seeing if direct player pursuit is more interesting
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
