@@ -47,6 +47,8 @@ public class ShopUI : MonoBehaviour
         }
 
         currentPlayer.SetMaxHealth(currentPlayer.playerActualHealth + 50.0f);
+        // Also heals you 
+        currentPlayer.HealPlayer(50.0f);
 
         if (DEBUG) print($"Upgrade purchased. New player max health: {currentPlayer.playerMaxHealth}");
         SoundManager.Play(SoundType.SHOP_YES);

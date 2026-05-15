@@ -30,7 +30,7 @@ public class Room : MonoBehaviour
     public RoomType roomType;
     public bool roomCleared = false;
     public List<GameObject> spawnedEnemies = new();
-    public int maxEnemies = 20;
+    public int maxEnemies = 40;
 
     // Essentially making a tuple via the serialized class
     public SpawnPointData[] spawnPoints;

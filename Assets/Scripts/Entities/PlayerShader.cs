@@ -10,7 +10,7 @@ namespace Assets.Scripts.Entities
 
         private void Start()
         {
-            SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
             if (spriteRenderer != null)
             {

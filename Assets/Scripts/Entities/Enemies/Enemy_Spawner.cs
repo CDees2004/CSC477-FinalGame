@@ -26,7 +26,7 @@ namespace Assets.Scripts.Entities.Enemies
 
             // Setting individual enemy fields
             enemyIdentifier = "Projectile";
-            enemyHealth = 200.0f;
+            enemyHealth = 150.0f;
             enemyDamage = 5.0f;
             enemyDeathScore = 500;
         }

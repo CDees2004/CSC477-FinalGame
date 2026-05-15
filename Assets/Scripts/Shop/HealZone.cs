@@ -50,7 +50,8 @@ namespace Assets.Scripts.Shop
             // Checking for interact key when within the shop zone
             if (inputActions.Player.Interact.WasPressedThisFrame())
             {
-                player.HealPlayer(50.0f);
+                // Full heal every time
+                player.HealPlayer(player.playerMaxHealth);
                 SoundManager.Play(SoundType.HEAL);
                 interactionPopup.SetActive(false);
                 // Clearing the room after healing 
