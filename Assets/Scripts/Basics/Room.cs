@@ -121,7 +121,7 @@ public class Room : MonoBehaviour
         //if (DEBUG) print($"Enemy rooms cleared: {Management_Rooms.clearedEnemyRooms}");
 
         // Checking the win condition after every room clearance
-        Management_Game.Instance.CheckWinCondition();
+        //Management_Game.Instance.CheckWinCondition();
     }
 
     // For cheat codes 

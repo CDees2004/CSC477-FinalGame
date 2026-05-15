@@ -109,6 +109,7 @@ public class ShopUI : MonoBehaviour
         if (Management_Rooms.Instance.CurrentRoom != null) Management_Rooms.Instance.CurrentRoom.ForceClearRoom();
     }
 
+
     public void LeaveShop()
     {
         SoundManager.Play(SoundType.SHOP_YES);

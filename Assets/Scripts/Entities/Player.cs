@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
     [Header("Combat")] // Putting a label above these params in the Inspector
     // REMEMBER: inspector values overwrite these values.
-    public float attackCooldown = 0.8f;
+    public float attackCooldown = 1.0f;
     public float attackRadius = 5.0f;
     public LayerMask enemyLayers;
     public Transform attackPoint;
