@@ -1,3 +1,4 @@
+using Assets.Scripts.Basics;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -191,6 +192,8 @@ public class Player : MonoBehaviour
         // Quick visual pause and knockback
         StartCoroutine(QuickGamePause(0.1f));
         StartCoroutine(InvincibilityFrames(0.4f));
+        // Screenshake 
+        StartCoroutine(Screenshake.Instance.Shake(0.15f, 0.2f));
 
 
         // Trigger lose condition
@@ -249,6 +252,8 @@ public class Player : MonoBehaviour
 
                 // Quick visual pause
                 StartCoroutine(QuickGamePause(0.1f));
+                // Screenshake 
+                StartCoroutine(Screenshake.Instance.Shake(0.15f, 0.2f));
                 Debug.Log($"DAMAGED: {enemy.name}");
             }
         }
