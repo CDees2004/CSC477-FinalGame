@@ -41,7 +41,7 @@ public class ShopUI : MonoBehaviour
     public void BuyIncreaseMaxHealth()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 500)
+        if (Score.Instance.score < 3_000)
         {
             SoundManager.Play(SoundType.SHOP_NO);
             return;
@@ -62,7 +62,7 @@ public class ShopUI : MonoBehaviour
     public void BuySpeedUpgrade()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 1_000)
+        if (Score.Instance.score < 5_000)
         {
             SoundManager.Play(SoundType.SHOP_NO);
             return;
@@ -79,7 +79,7 @@ public class ShopUI : MonoBehaviour
     public void BuyDamageUpgrade()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 750)
+        if (Score.Instance.score < 3_000)
         {
             SoundManager.Play(SoundType.SHOP_NO);
             return;
@@ -96,7 +96,7 @@ public class ShopUI : MonoBehaviour
     public void BuyAttackSpeed()
     {
         if (currentPlayer == null) return;
-        if (Score.Instance.score < 1_500)
+        if (Score.Instance.score < 5_000)
         {
             SoundManager.Play(SoundType.SHOP_NO);
             return;
