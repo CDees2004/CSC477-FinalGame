@@ -38,6 +38,9 @@ public class Management_Game : MonoBehaviour
     private string playerName;
     private Dictionary<string, GameObject> uiCache = new();
 
+    // settings
+    public bool ReduceFlashing;
+
     private void Awake()
     {
         // setup high score
@@ -65,6 +68,8 @@ public class Management_Game : MonoBehaviour
     private void Start()
     {
         namePromptText.SetActive(false);
+
+        ReduceFlashing = false;
     }
 
     // Takes in UI element as arg, set it and only it active
@@ -186,6 +191,16 @@ public class Management_Game : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+        SoundManager.Play(SoundType.MENU_CLICK);
+    }
+
+    public void ToggleFlashing()
+    {
+        if (ReduceFlashing) {
+            ReduceFlashing = false;
+        } else {
+            ReduceFlashing = true;
+        }
         SoundManager.Play(SoundType.MENU_CLICK);
     }
 

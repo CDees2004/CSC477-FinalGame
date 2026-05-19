@@ -24,11 +24,23 @@ public class EnemyShader : MonoBehaviour
 
     private IEnumerator FlashCoroutine(float duration)
     {
-        // Setting flash to full brightness 
-        enemyDamageMaterial.SetFloat("_FlashAmount", 0.35f);
+        // Setting flash to full brightness
+        float flash;
+        if (Management_Game.Instance.ReduceFlashing){
+            flash = 0.05f;
+        } else {
+            flash = 0.35f;
+        }
+        enemyDamageMaterial.SetFloat("_FlashAmount", flash);
+        
 
         // Waiting for half a second 
-        yield return new WaitForSeconds(duration);
+        if (Management_Game.Instance.ReduceFlashing){
+            yield return new WaitForSeconds(duration*2);
+        } else {
+            yield return new WaitForSeconds(duration);
+        }
+        
 
         // Go back to normal
         enemyDamageMaterial.SetFloat("_FlashAmount", 0.0f);
