@@ -14,6 +14,7 @@ public enum FsmUIState
     IN_GAME,
     PAUSED,
     IN_SETTINGS,
+    IN_TUTORIAL,
     SELECTING_UPGRADE,
     GAME_OVER,
     GAME_WIN,
@@ -32,6 +33,7 @@ public class Management_Game : MonoBehaviour
     // Set in Inspector
     public List<GameObject> PanelsUI;
     public GameObject settingsPanel;
+    public GameObject tutorialPanel;
     public TMP_InputField nameInput;
     public GameObject namePromptText;
 
@@ -117,6 +119,10 @@ public class Management_Game : MonoBehaviour
                 OpenSettings();
                 break;
 
+            case UIState.IN_TUTORIAL:
+                OpenTutorial();
+                break;
+
             case UIState.GAME_OVER:
                 SetUIElement("GameOverScreen");
                 // Using the actual high score implementation
@@ -191,6 +197,17 @@ public class Management_Game : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+        SoundManager.Play(SoundType.MENU_CLICK);
+    }
+
+    public void OpenTutorial()
+    {
+        tutorialPanel.SetActive(true);
+    }
+
+    public void CloseTutorial()
+    {
+        tutorialPanel.SetActive(false);
         SoundManager.Play(SoundType.MENU_CLICK);
     }
 
