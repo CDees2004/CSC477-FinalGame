@@ -1,6 +1,8 @@
 using Assets.Scripts.Basics;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -43,6 +45,8 @@ public class Player : MonoBehaviour
     private Vector2 knockbackVelocity;
     private bool isInvincible;
 
+    private Light2D playerLight;
+
     private void Awake()
     {
         inputActions = new PlayerInputActions();
@@ -78,6 +82,8 @@ public class Player : MonoBehaviour
         attackAnimation.SetActive(false);
 
         playerHitShader = GetComponent<EnemyShader>();
+
+        playerLight = GetComponentInChildren<Light2D>();
     }
 
     void Update()
@@ -170,6 +176,10 @@ public class Player : MonoBehaviour
         playerActualHealth += healAmount;
         playerActualHealth = Mathf.Clamp(playerActualHealth, 0, playerMaxHealth);
 
+        float healthForLight = playerActualHealth / playerMaxHealth;
+        // Lowering the intensity of the light attached to the player 
+        playerLight.intensity = healthForLight * 14.0f;
+
         UpdateHealthUI();
     }
 
@@ -194,6 +204,10 @@ public class Player : MonoBehaviour
         StartCoroutine(InvincibilityFrames(0.4f));
         // Screenshake 
         Screenshake.Instance.StartShake(0.15f, 0.2f);
+
+        float healthForLight = playerActualHealth / playerMaxHealth;
+        // Lowering the intensity of the light attached to the player 
+        playerLight.intensity = healthForLight * 14.0f;
 
         // Trigger lose condition
         if (playerActualHealth <= 0)
