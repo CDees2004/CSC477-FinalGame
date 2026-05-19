@@ -209,6 +209,7 @@ public class Management_Game : MonoBehaviour
     public void ContinueGame()
     {
         ChangeUIState(UIState.IN_GAME);
+        Time.timeScale = 1.0f;
         SoundManager.Play(SoundType.MENU_CLICK);
     }
 
